@@ -2,8 +2,7 @@ import { CSSProperties, MouseEventHandler } from 'react';
 
 /**
  * @description base param for Component
- * @param value some value for any component
- * @param style some StylesProps for any component
+ * @param value some string value for any component
  */
 
 type BaseComponentProps = {
@@ -14,6 +13,8 @@ type BaseComponentProps = {
  * @description styles params for any component
  * @param style inline styles for any Component
  * @param className css-class for any Component
+ * @param variant any component variant can 'primary', 'secondary' or 'thirdy'
+ * @param theme for any component can 'dark' or 'light' 
  */
 type StylesProps = {
   style: CSSProperties | string;
