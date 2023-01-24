@@ -1,11 +1,8 @@
 import { FC } from 'react';
 
-import { BaseComponentProps } from '../../types/common';
+import { TArticle } from '../../types/ui';
 
-type Props = Partial<BaseComponentProps>
-
-const Article: FC<Props> = ({ value = '', styles }) => {
-  const { className } = styles ?? { className : '' };
+const Article: FC<Partial<TArticle>> = ({ value = '', className = '' }) => {
   return <article className={`font-sans ${className}`.trimEnd()}>{value}</article>;
 };
 

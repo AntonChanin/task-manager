@@ -8,7 +8,6 @@ import { CSSProperties, MouseEventHandler } from 'react';
 
 type BaseComponentProps = {
   value: string;
-  styles: Partial<StylesProps>;
 }
 
 /**
@@ -18,7 +17,9 @@ type BaseComponentProps = {
  */
 type StylesProps = {
   style: CSSProperties | string;
-  className: string;
+  className: string | Record<string, string>;
+  variant: Variant;
+  theme: Theme;
 }
 
 /**
@@ -35,4 +36,8 @@ type VoidCallback = {
   callback(): void;
 };
 
-export type { BaseComponentProps, StylesProps, ClickButton, VoidCallback };
+type Variant = 'primary' | 'secondary' | 'thirdy';
+
+type Theme = 'dark' | 'light';
+
+export type { BaseComponentProps, StylesProps, ClickButton, VoidCallback, Variant, Theme };

@@ -1,5 +1,6 @@
 const LocalizationEng = {
-    addCard: 'Add another card',
+  addCard: 'Add another card',
+  addAnotherList: 'Add another list',
 };
 
 export default LocalizationEng;

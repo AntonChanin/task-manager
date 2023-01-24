@@ -1,16 +1,33 @@
 import { FC, MouseEventHandler, PropsWithChildren } from 'react';
+import tailwindcssStyles from '../../assets/styles';
 
-import { BaseComponentProps, ClickButton, VoidCallback } from '../../types/common';
+import { TButton } from '../../types/ui';
 
-type Props = Partial<BaseComponentProps & ClickButton & VoidCallback>
-
-const Button: FC<PropsWithChildren<Props>> = ({ value = '', styles, callback, onClick: handleClick, children }) => {
-  const { className } = styles ?? { className: '' };
+const Button: FC<PropsWithChildren<Partial<TButton>>> = (props) => {
+  const {
+    value = '',
+    className = '',
+    variant = 'primary',
+    theme = 'light',
+    callback,
+    onClick: handleClick,
+    children,
+  } = props;
   const defaultHandleClick: MouseEventHandler<HTMLButtonElement> = (event) => {
     event?.preventDefault();
     callback?.();
   };
-  return <button onClick={handleClick ?? defaultHandleClick} className={`${className}`.trimEnd()}>{value}{children}</button>
+  return (
+    <button
+      onClick={handleClick ?? defaultHandleClick}
+      className={
+        `${tailwindcssStyles['ui']['button'][variant](theme)} ${className}`
+          .trimEnd()
+      }
+    >
+      {value}{children}
+    </button>
+  );
 }
 
 export default Button;
