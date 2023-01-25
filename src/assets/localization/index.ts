@@ -1,8 +1,6 @@
-import LocalizationEng from './localizationEng';
+import ENG from './localizationEng';
+import RU from './localizationRu';
 
-const localization = {
-  ENG: LocalizationEng,
-  RU: {},
-};
+const localization = { ENG, RU };
 
 export default localization;
