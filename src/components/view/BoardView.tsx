@@ -12,7 +12,7 @@ import Paper from '../ui/Paper';
 
 const BoardView: FC<BoardProps> = (props) => {
   const { model } = props;
-  const { __default: { items: defaultGroup }, classList, items: groups, lang, addGroup } = model;
+  const { __default: { items: defaultGroup }, makeClass, items: groups, lang, addGroup } = model;
   const { addGroupId, addCardId, cardIds, groupIds } = InstanceTaskManagerStore;
 
   useEffect(() => {}, [cardIds.length, groupIds.length])
@@ -32,11 +32,20 @@ const BoardView: FC<BoardProps> = (props) => {
   };
 
   return (
-    <Paper variant="secondary" className={classList['paper']}>
-      <Title className={classList['title']} value={localization[lang].welcomeBoard} />
-      <div className={classList['group']}>
-        {groups.map((group) => <GroupView model={group}/>)}
-        <GroupView callback={addNewGroup} model={defaultGroup[0]}/>
+    <Paper
+      variant="secondary"
+      className={makeClass(['paper'])}
+    >
+      <Title
+        className={makeClass(['title'])}
+        value={localization[lang].welcomeBoard}
+      />
+      <div className={makeClass(['group'])}>
+        {groups.map((group) => <GroupView key={`group__${group.id}`} model={group}/>)}
+        <GroupView
+          callback={addNewGroup}
+          model={defaultGroup[0]}
+        />
       </div>     
     </Paper>    
   );

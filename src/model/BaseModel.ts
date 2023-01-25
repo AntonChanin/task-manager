@@ -44,6 +44,12 @@ class BaseModel {
     };
   };
 
+  makeClass = (classes: string[]) => {
+    let className = '';
+    classes.forEach((item) => className = `${className} ${this.classList[item]}`);
+    return className.replace('undefined', '').trimStart().trimEnd();
+  };
+
   get id() {
     return this.__id;
   };

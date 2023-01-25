@@ -12,7 +12,7 @@ import { GroupProps } from '../../types/view';
 
 const GroupView: FC<GroupProps> = (props) => {
   const { callback, model } = props;
-  const { classList, name, items: cards, lang, addCard } = model;
+  const { makeClass, name, items: cards, lang, addCard } = model;
   const { addCardId, cardIds } = InstanceTaskManagerStore;
   
   useEffect(() => {}, [cardIds.length])
@@ -28,14 +28,14 @@ const GroupView: FC<GroupProps> = (props) => {
 
   return (
     <Paper 
-      className={`${classList['paper']} ${classList['paperColor']}`.trimEnd()}
+      className={makeClass(['paper', 'paperColor'])}
     >
-      {name && <Title value={name} className={classList['title']} />}
-      <div className={classList['cards']}>
+      {name && <Title value={name} className={makeClass(['title'])} />}
+      <div className={makeClass(['cards'])}>
         {cards.map((card) => <CardView key={`card__${card.id}`} model={card} />)}
       </div>
       <Button
-        className={classList['button']}
+        className={makeClass(['button'])}
         theme={cards.length ? 'light' : 'dark'}
         value={`+ ${localization[lang][cards.length ? 'addCard' : 'addAnotherList']}`}
         variant="thirdy"

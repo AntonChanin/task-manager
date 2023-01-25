@@ -8,10 +8,15 @@ import { CardProps } from '../../types/view';
 
 const CardView: FC<CardProps> = (props) => {
   const { model } = props;
-  const { description, variant, classList } = model;
+  const { description, variant, makeClass } = model;
+
   return (
-    <Paper className={classList['paper']}>
-      <Button className={classList['editButton']} value={'edit'} variant={variant} />
+    <Paper>
+      <Button
+        className={makeClass(['editButton'])}
+        value={'edit'}
+        variant={variant}
+      />
       <Article value={description} />
     </Paper>
   );
