@@ -9,13 +9,21 @@ import InstanceTaskManagerStore from '../../store';
 import localization from '../../assets/localization';
 import { BoardProps } from '../../types/view';
 import Paper from '../ui/Paper';
+import useUpdate from '../../hooks/useUpdate';
 
 const BoardView: FC<BoardProps> = (props) => {
   const { model } = props;
-  const { __default: { items: defaultGroup }, makeClass, items: groups, lang, addGroup } = model;
-  const { addGroupId, addCardId, cardIds, groupIds } = InstanceTaskManagerStore;
+  const {
+    __default: { items: defaultGroup },
+    items: groups,
+    lang,
+    addGroup,
+    didUpdate,
+    makeClass,
+  } = model;
+  const { cardIds, groupIds, addGroupId, addCardId } = InstanceTaskManagerStore;
 
-  useEffect(() => {}, [cardIds.length, groupIds.length])
+  useUpdate(didUpdate, [cardIds.length, groupIds.length]);
 
   const addNewGroup = () => {
     const group = new GroupModel({

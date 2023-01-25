@@ -8,14 +8,21 @@ import CardView from './CardView';
 import CardModel from '../../model/CardModel';
 import InstanceTaskManagerStore from '../../store';
 import localization from '../../assets/localization';
+import useUpdate from '../../hooks/useUpdate';
 import { GroupProps } from '../../types/view';
 
 const GroupView: FC<GroupProps> = (props) => {
   const { callback, model } = props;
-  const { makeClass, name, items: cards, lang, addCard } = model;
+  const {
+    name,
+    items: cards,
+    lang, addCard,
+    didUpdate,
+    makeClass,
+  } = model;
   const { addCardId, cardIds } = InstanceTaskManagerStore;
   
-  useEffect(() => {}, [cardIds.length])
+  useUpdate(didUpdate, [cardIds.length]);
 
   const addNewCard = () => {
     const card = new CardModel({
@@ -46,4 +53,3 @@ const GroupView: FC<GroupProps> = (props) => {
 };
 
 export default observer(GroupView);
-
