@@ -7,6 +7,7 @@ class GroupModel extends BaseModel {
     ...super.__default,
     name: 'GroupModel',
     classList: {
+      button: 'flex',
       cards: 'overflow-y-auto max-h-[78vh] pr-2',
       title: 'flex place-content-between py-4',
       paper: 'w-1/4 min-w-[25%] h-max px-4  mr-2 flex-col items-start',
