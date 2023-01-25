@@ -1,7 +1,6 @@
-import uiStyles from './ui';
+import theme from './theme';
+import ui from './ui';
 
-const tailwindcssStyles = {
-    ui: uiStyles,
-}
+const tailwindcssStyles = { ui, theme };
 
 export default tailwindcssStyles;
