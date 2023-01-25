@@ -50,9 +50,7 @@ class BaseModel {
     return className.replace('undefined', '').trimStart().trimEnd();
   };
 
-  didUpdate = () => {
-
-  };
+  didUpdate = () => {};
 
   get id() {
     return this.__id;
