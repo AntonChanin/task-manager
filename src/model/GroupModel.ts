@@ -7,8 +7,9 @@ class GroupModel extends BaseModel {
     ...super.__default,
     name: 'GroupModel',
     classList: {
+      cards: 'overflow-y-auto max-h-[78vh] pr-2',
       title: 'flex place-content-between py-4',
-      paper: 'w-1/4 min-w-[25%] h-max px-4 overflow-y-auto mr-2 flex-col items-start max-h-[90vh]',
+      paper: 'w-1/4 min-w-[25%] h-max px-4  mr-2 flex-col items-start',
       paperColor: `${tailwindcssStyles['theme']['background']['primary']}`,
     },
   };
