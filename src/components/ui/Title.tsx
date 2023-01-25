@@ -5,8 +5,8 @@ type Props = {
   className?: string;
 };
 
-const Title: FC<Props> = ({ value = '', className = '' }) => {
-  return <div className={`font-sans	font-bold ${className}`.trimEnd()}>{value}</div>;
-};
+const Title: FC<Props> = ({ value = '', className = '' }) => (
+  <div className={`font-sans font-bold ${className}`.trimEnd()}>{value}</div>
+);
 
 export default Title;

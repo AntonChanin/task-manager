@@ -8,14 +8,21 @@ import CardView from './CardView';
 import CardModel from '../../model/CardModel';
 import InstanceTaskManagerStore from '../../store';
 import localization from '../../assets/localization';
+import useUpdate from '../../hooks/useUpdate';
 import { GroupProps } from '../../types/view';
 
 const GroupView: FC<GroupProps> = (props) => {
   const { callback, model } = props;
-  const { classList, name, items: cards, lang, addCard } = model;
+  const {
+    name,
+    items: cards,
+    lang, addCard,
+    didUpdate,
+    makeClass,
+  } = model;
   const { addCardId, cardIds } = InstanceTaskManagerStore;
   
-  useEffect(() => {}, [cardIds.length])
+  useUpdate(didUpdate, [cardIds.length]);
 
   const addNewCard = () => {
     const card = new CardModel({
@@ -28,14 +35,14 @@ const GroupView: FC<GroupProps> = (props) => {
 
   return (
     <Paper 
-      className={`${classList['paper']} ${classList['paperColor']}`.trimEnd()}
+      className={makeClass(['paper', 'paperColor'])}
     >
-      {name && <Title value={name} className={classList['title']} />}
-      <div className={classList['cards']}>
+      {name && <Title value={name} className={makeClass(['title'])} />}
+      <div className={makeClass(['cards'])}>
         {cards.map((card) => <CardView key={`card__${card.id}`} model={card} />)}
       </div>
       <Button
-        className={classList['button']}
+        className={makeClass(['button'])}
         theme={cards.length ? 'light' : 'dark'}
         value={`+ ${localization[lang][cards.length ? 'addCard' : 'addAnotherList']}`}
         variant="thirdy"
@@ -46,4 +53,3 @@ const GroupView: FC<GroupProps> = (props) => {
 };
 
 export default observer(GroupView);
-

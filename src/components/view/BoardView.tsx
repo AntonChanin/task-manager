@@ -9,13 +9,21 @@ import InstanceTaskManagerStore from '../../store';
 import localization from '../../assets/localization';
 import { BoardProps } from '../../types/view';
 import Paper from '../ui/Paper';
+import useUpdate from '../../hooks/useUpdate';
 
 const BoardView: FC<BoardProps> = (props) => {
   const { model } = props;
-  const { __default: { items: defaultGroup }, classList, items: groups, lang, addGroup } = model;
-  const { addGroupId, addCardId, cardIds, groupIds } = InstanceTaskManagerStore;
+  const {
+    __default: { items: defaultGroup },
+    items: groups,
+    lang,
+    addGroup,
+    didUpdate,
+    makeClass,
+  } = model;
+  const { cardIds, groupIds, addGroupId, addCardId } = InstanceTaskManagerStore;
 
-  useEffect(() => {}, [cardIds.length, groupIds.length])
+  useUpdate(didUpdate, [cardIds.length, groupIds.length]);
 
   const addNewGroup = () => {
     const group = new GroupModel({
@@ -32,11 +40,20 @@ const BoardView: FC<BoardProps> = (props) => {
   };
 
   return (
-    <Paper variant="secondary" className={classList['paper']}>
-      <Title className={classList['title']} value={localization[lang].welcomeBoard} />
-      <div className={classList['group']}>
-        {groups.map((group) => <GroupView model={group}/>)}
-        <GroupView callback={addNewGroup} model={defaultGroup[0]}/>
+    <Paper
+      variant="secondary"
+      className={makeClass(['paper'])}
+    >
+      <Title
+        className={makeClass(['title'])}
+        value={localization[lang].welcomeBoard}
+      />
+      <div className={makeClass(['group'])}>
+        {groups.map((group) => <GroupView key={`group__${group.id}`} model={group}/>)}
+        <GroupView
+          callback={addNewGroup}
+          model={defaultGroup[0]}
+        />
       </div>     
     </Paper>    
   );
