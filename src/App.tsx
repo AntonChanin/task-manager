@@ -1,32 +1,30 @@
-import Column from './components/ui/Column';
-import Card from './components/ui/Paper';
-import Title from './components/ui/Title';
+import { observer } from 'mobx-react-lite';
+
+import GroupModel from './model/GroupModel';
+import CardModel from './model/CardModel';
+import BoardView from './components/view/BoardView';
+import InstanceTaskManagerStore from './store';
 import './App.css';
-import Paper from './components/ui/Paper';
-import Button from './components/ui/Button';
-import Article from './components/ui/Article';
 
 function App() {
+  const { boards } = InstanceTaskManagerStore;
+  const groupModel = new GroupModel({ name: 'Basics' })
+  groupModel.addCard(
+    new CardModel({
+      name: '', 
+      description: `
+        create mode 100644 postcss.config.cjs
+        create mode 100644 src/store/index.ts
+        create mode 100644 tailwind.config.cjs
+      `
+    })
+  );
+
   return (
     <div className="App">
-      <div className="flex-col bg-blue-400 p-4 font-sans w-full h-full">
-        <Title className="my-2 w-max text-white text-2xl" value="Welcome board" />
-        <div className="flex">
-          <Column value="Basics">
-            <Paper>
-              <Button className="opacity-0 flex ml-auto hover:opacity-100 absolute top-0 right-0" value={'edit'} variant="thirdy" />
-              <Article value={`
-                create mode 100644 postcss.config.cjs
-                create mode 100644 src/store/index.ts
-                create mode 100644 tailwind.config.cjs
-              `} />
-            </Paper>
-          </Column>
-          <Column />
-        </div>     
-      </div>    
+      <BoardView model={boards[0]} />   
     </div>
   );
 };
 
-export default App;
+export default observer(App);
