@@ -1,9 +1,10 @@
 import { FC } from 'react';
 
-import { TArticle } from '../../types/ui';
+import createClass from '../../utils/createClass';
+import { ArticleProps } from '../../types/ui';
 
-const Article: FC<Partial<TArticle>> = ({ value = '', className = '' }) => {
-  return <article className={`font-sans ${className}`.trimEnd()}>{value}</article>;
+const Article: FC<Partial<ArticleProps>> = ({ value = '', className = '' }) => {
+  return <article className={createClass(['font-sans', `${className}`])}>{value}</article>;
 };
 
 export default Article;

@@ -1,9 +1,11 @@
-import { BaseComponentProps, ClickButton, StylesProps, VoidCallback } from './common';
+import { BaseComponentProps, ClickButton, StylesProps, VoidCallback, VoidCallbackWithProps } from './common';
 
-type TArticle = BaseComponentProps & StylesProps;
+type ArticleProps = BaseComponentProps & StylesProps;
 
-type TPaper = StylesProps;
+type ButtonProps = BaseComponentProps & StylesProps & ClickButton & VoidCallback;
 
-type TButton = BaseComponentProps & StylesProps & ClickButton & VoidCallback;
+type PaperProps = StylesProps;
 
-export type { TArticle, TButton, TPaper };
+type EditProps = BaseComponentProps & StylesProps & VoidCallbackWithProps;
+
+export type { ArticleProps, ButtonProps, PaperProps, EditProps };

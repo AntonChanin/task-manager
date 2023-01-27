@@ -1,9 +1,10 @@
 import { FC, MouseEventHandler, PropsWithChildren } from 'react';
+
 import tailwindcssStyles from '../../assets/styles';
+import createClass from '../../utils/createClass';
+import { ButtonProps } from '../../types/ui';
 
-import { TButton } from '../../types/ui';
-
-const Button: FC<PropsWithChildren<Partial<TButton>>> = (props) => {
+const Button: FC<PropsWithChildren<Partial<ButtonProps>>> = (props) => {
   const {
     value = '',
     className = '',
@@ -20,10 +21,7 @@ const Button: FC<PropsWithChildren<Partial<TButton>>> = (props) => {
   return (
     <button
       onClick={handleClick ?? defaultHandleClick}
-      className={
-        `${tailwindcssStyles['ui']['button'][variant](theme)} ${className}`
-          .trimEnd()
-      }
+      className={createClass([tailwindcssStyles['ui']['button'][variant](theme), `${className}`])}
     >
       {value}{children}
     </button>

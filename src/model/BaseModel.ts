@@ -1,5 +1,6 @@
-import { BaseProps } from '../types/model';
+import createClass from '../utils/createClass';
 import uuid from '../utils/uuid';
+import { BaseProps } from '../types/model';
 
 class BaseModel {
 
@@ -9,6 +10,7 @@ class BaseModel {
     description: 'lorem ipsum',
     localization: 'ENG',
     items: [],
+    isEdit: true,
   };
 
   private __id = '';
@@ -17,6 +19,7 @@ class BaseModel {
 
   classList = this.__default.classList;
   description = this.__default.description;
+  isEdit = this.__default.isEdit;
   items: BaseModel[] = [];
 
   constructor(options: Record<string, any>) {
@@ -44,13 +47,13 @@ class BaseModel {
     };
   };
 
-  makeClass = (classes: string[]) => {
-    let className = '';
-    classes.forEach((item) => className = `${className} ${this.classList[item]}`);
-    return className.replace('undefined', '').trimStart().trimEnd();
-  };
+  makeClass = (classes: string[]) => createClass(classes, this.classList);
 
   didUpdate = () => {};
+
+  setEdit = (newEdit: boolean) => {
+    this.isEdit = newEdit;
+  };
 
   get id() {
     return this.__id;
@@ -59,6 +62,10 @@ class BaseModel {
   get name() {
     return this.__name;
   };
+
+  set name(newVName: string) {
+    this.__name = newVName;
+  }
 
   get lang() {
     return this.__localization;
