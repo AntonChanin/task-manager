@@ -1,10 +1,18 @@
 import React, { ChangeEventHandler, FC, useState } from 'react';
 
 import createClass from '../../utils/createClass';
+import tailwindcssStyles from '../../assets/styles';
 import { EditProps } from '../../types/ui';
 
 const Input: FC<Partial<EditProps>> = (props) => {
-  const { className, value, placeholder, callback } = props;
+  const {
+    className,
+    variant = 'primary',
+    theme = 'light',
+    value,
+    placeholder,
+    callback,
+  } = props;
   const [currentValue, setNewValue] = useState(value);
 
   const handleChange: ChangeEventHandler<HTMLInputElement> = (event) => {
@@ -21,9 +29,7 @@ const Input: FC<Partial<EditProps>> = (props) => {
       className={
         createClass([
           'w-11/12',
-          'outline-none',
-          'border',
-          'm-auto',
+          tailwindcssStyles['ui']['edit'][variant](theme),
           `${className}`
         ])
       }

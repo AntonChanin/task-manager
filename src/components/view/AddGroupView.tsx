@@ -5,13 +5,15 @@ import Button from '../ui/Button';
 import Paper from '../ui/Paper';
 import Title from '../ui/Title';
 import CardView from './CardView';
+import GroupModel from '../../model/GroupModel';
 import InstanceTaskManagerStore from '../../store';
 import localization from '../../assets/localization';
 import tailwindcssStyles from '../../assets/styles';
 import useUpdate from '../../hooks/useUpdate';
-import { GroupProps } from '../../types/view';
+import { ViewExtendeble } from '../../types/view';
+import { VoidCallback } from '../../types/common';
 
-const AddGroupView: FC<GroupProps> = (props) => {
+const AddGroupView: FC<ViewExtendeble<GroupModel, VoidCallback>> = (props) => {
   const { callback, model } = props;
   const {
     name,

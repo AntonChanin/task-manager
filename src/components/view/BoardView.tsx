@@ -3,15 +3,16 @@ import { observer } from 'mobx-react-lite';
 
 import Title from '../ui/Title';
 import Paper from '../ui/Paper';
+import BoardModel from '../../model/BoardModel';
 import GroupModel from '../../model/GroupModel';
 import AddGroupView from './AddGroupView';
 import GroupView from './GroupView';
 import InstanceTaskManagerStore from '../../store';
 import useUpdate from '../../hooks/useUpdate';
 import localization from '../../assets/localization';
-import { BoardProps } from '../../types/view';
+import { ViewWithModel } from '../../types/view';
 
-const BoardView: FC<BoardProps> = (props) => {
+const BoardView: FC<ViewWithModel<BoardModel>> = (props) => {
   const { model } = props;
   const {
     __default: { items: defaultGroup },

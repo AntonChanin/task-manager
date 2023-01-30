@@ -1,10 +1,18 @@
 import React, { ChangeEventHandler, FC, useState } from 'react';
 
 import createClass from '../../utils/createClass';
+import tailwindcssStyles from '../../assets/styles';
 import { EditProps } from '../../types/ui';
 
 const Textarea: FC<Partial<EditProps>> = (props) => {
-  const { className, value, placeholder, callback } = props;
+  const {
+    className,
+    variant = 'primary',
+    theme = 'light',
+    value,
+    placeholder,
+    callback,
+  } = props;
   const [currentValue, setNewValue] = useState(value);
 
   const handleChange: ChangeEventHandler<HTMLTextAreaElement> = (event) => {
@@ -20,10 +28,7 @@ const Textarea: FC<Partial<EditProps>> = (props) => {
       placeholder={placeholder}
       className={
         createClass([
-          'w-11/12',
-          'outline-none',
-          'border',
-          'm-auto',
+          tailwindcssStyles['ui']['edit'][variant](theme),
           `${className}`
         ])
       }

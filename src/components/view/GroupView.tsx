@@ -8,15 +8,15 @@ import Paper from '../ui/Paper';
 import Row from '../ui/Row';
 import CardView from './CardView';
 import CardModel from '../../model/CardModel';
+import GroupModel from '../../model/GroupModel';
 import InstanceTaskManagerStore from '../../store';
 import localization from '../../assets/localization';
 import tailwindcssStyles from '../../assets/styles';
 import useUpdate from '../../hooks/useUpdate';
-import { GroupProps } from '../../types/view';
+import { ViewWithModel } from '../../types/view';
 
-
-const GroupView: FC<GroupProps> = (props) => {
-  const { callback, model } = props;
+const GroupView: FC<ViewWithModel<GroupModel>> = (props) => {
+  const { model } = props;
   const {
     name,
     items: cards,
@@ -40,6 +40,7 @@ const GroupView: FC<GroupProps> = (props) => {
     const card = new CardModel({
       name: '',
       description: '',
+      variant: 'thirdy',
     });
     addCard(card);
     addCardId(card.id);
@@ -55,13 +56,27 @@ const GroupView: FC<GroupProps> = (props) => {
       {!isEdit ? (
         name && (
           <Row>
-            <Title value={name} className={makeClass(['title'])} /><Button variant="thirdy"  callback={cardEdit}>ok</Button> 
+            <Title value={name} className={makeClass(['title'])} />
+            <Button
+              value="..."
+              variant="thirdy"
+              callback={cardEdit}
+            />
           </Row>
         )
       ) : (
         <Row>
-          <Input value={name} placeholder={localization[lang].editGroupTitlePlaceholder} callback={updateNameCallback} />
-          <Button variant="thirdy" callback={cardEdit}>ok</Button> 
+          <Input
+            value={name}
+            variant="thirdy"
+            placeholder={localization[lang].editGroupTitlePlaceholder}
+            callback={updateNameCallback}
+          />
+          <Button
+            value="..."
+            variant="thirdy"
+            callback={cardEdit}
+          /> 
         </Row>
       )}
       <div className={makeClass(['cards'])}>
@@ -72,7 +87,7 @@ const GroupView: FC<GroupProps> = (props) => {
         theme="light"
         value={`+ ${localization[lang].addCard}`}
         variant="thirdy"
-        callback={callback ?? addNewCard}
+        callback={addNewCard}
       />
     </Paper>
   );

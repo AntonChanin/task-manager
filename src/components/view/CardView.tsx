@@ -4,30 +4,34 @@ import { observer } from 'mobx-react-lite';
 import Article from '../ui/Article';
 import Button from '../ui/Button';
 import Paper from '../ui/Paper';
-import { CardProps } from '../../types/view';
 import Textarea from '../ui/Textarea';
+import CardModel from '../../model/CardModel';
 import localization from '../../assets/localization';
+import { ViewWithModel } from '../../types/view';
 
-const CardView: FC<CardProps> = (props) => {
+const CardView: FC<ViewWithModel<CardModel>> = (props) => {
   const { model } = props;
   const { description, variant, lang, makeClass, setEdit } = model;
   const [isEdit, setIsEdit] = useState(model.isEdit);
 
   const cardEdit = () =>  {
-    setIsEdit(!isEdit);
-    setEdit(isEdit);
+    if (model.description.trimEnd()) {
+      setIsEdit(!isEdit);
+      setEdit(isEdit);
+    };
   };
 
-  const updateDescriptionCallback: <T>(props: Record<string, T>) => void = (props) => {
-    const { value } = props;
-    model.description = `${value}`;
-  };
+  const updateDescriptionCallback: <T>(props: Record<string, T>) => void =
+    (props) => {
+      const { value } = props;
+      model.description = `${value}`.trim();
+    };        
 
   return (
     <Paper>
       <Button
         className={makeClass(['editButton'])}
-        value={'edit'}
+        value="..."
         variant={variant}
         callback={cardEdit}
       />
@@ -38,10 +42,10 @@ const CardView: FC<CardProps> = (props) => {
           <>
             <Textarea
               value={description}
+              variant="thirdy"
               placeholder={localization[lang].editCardPlaceholder}
               callback={updateDescriptionCallback}
             />
-            <Button variant="thirdy" callback={cardEdit}>ok</Button>
           </>
         )
       }
