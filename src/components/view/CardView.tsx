@@ -39,14 +39,12 @@ const CardView: FC<ViewWithModel<CardModel>> = (props) => {
         ? (
           <Article value={description} />
         ) : (
-          <>
-            <Textarea
-              value={description}
-              variant="thirdy"
-              placeholder={localization[lang].editCardPlaceholder}
-              callback={updateDescriptionCallback}
-            />
-          </>
+          <Textarea
+            value={description}
+            variant="thirdy"
+            placeholder={localization[lang].editCardPlaceholder}
+            callback={updateDescriptionCallback}
+          />
         )
       }
     </Paper>
