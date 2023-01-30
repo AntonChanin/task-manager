@@ -15,6 +15,7 @@ class BaseModel {
 
   private __id = '';
   private __name = this.__default.name;
+  private __parent?: BaseModel;
   private __localization = this.__default.localization;
 
   classList = this.__default.classList;
@@ -23,11 +24,12 @@ class BaseModel {
   items: BaseModel[] = [];
 
   constructor(options: Record<string, any>) {
-    const { name, description, localization = 'ENG' } = options;
+    const { name, description, localization = 'ENG', parent } = options;
 
     this.__id = uuid();
     this.__name = name;
     this.__localization = localization;
+    this.__parent = parent;
 
     this.description = description;
     this.classList = this.__default.classList;
@@ -39,6 +41,18 @@ class BaseModel {
       newItem,
     ];
   };
+
+  protected removeItem = (removedItem: BaseModel) => {
+    this.items = this.items.filter((model) => model.id !== removedItem.id);
+  };
+
+  removeItemById = (id: string) => {
+    this.items = this.items.filter((model) => model.id !== id);
+  }
+
+  removeFromParent = () => {
+    this.parent?.removeItemById(this.id);
+  }
 
   addClass = (newClasses: Record<string, string>) => {
     this.classList = {
@@ -57,6 +71,10 @@ class BaseModel {
 
   get id() {
     return this.__id;
+  };
+
+  get parent() {
+    return this.__parent;
   };
 
   get name() {

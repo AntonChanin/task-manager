@@ -15,6 +15,8 @@ class TaskManagerStore {
       addBoard: action.bound,
       addCardId: action.bound,
       addGroupId: action.bound,
+      removeCardId: action.bound,
+      removeGroupId: action.bound,
     });
   };
 
@@ -37,6 +39,14 @@ class TaskManagerStore {
       ...this.groupIds,
       newGroupId,
     ];
+  };
+
+  removeCardId(removeCardId: string) {
+    this.cardIds = this.cardIds.filter((cardId) => cardId !== removeCardId);
+  };
+
+  removeGroupId(removeGroupId: string) {
+    this.groupIds = this.groupIds.filter((groupId) => groupId !== removeGroupId);
   };
   
 };

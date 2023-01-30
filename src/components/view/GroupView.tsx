@@ -18,6 +18,7 @@ import { ViewWithModel } from '../../types/view';
 const GroupView: FC<ViewWithModel<GroupModel>> = (props) => {
   const { model } = props;
   const {
+    id,
     name,
     items: cards,
     lang,
@@ -25,22 +26,29 @@ const GroupView: FC<ViewWithModel<GroupModel>> = (props) => {
     addCard,
     didUpdate,
     makeClass,
+    removeFromParent,
   } = model;
-  const { cardIds, addCardId } = InstanceTaskManagerStore;
+  const { cardIds, addCardId, removeGroupId } = InstanceTaskManagerStore;
   const [isEdit, setIsEdit] = useState(model.isEdit);
 
   const cardEdit = () =>  {
-    setIsEdit(!isEdit);
-    setEdit(isEdit);
+    if (model.name.trimEnd()) {
+      setIsEdit(!isEdit);
+      setEdit(isEdit);
+    } else {
+      removeFromParent();
+      removeGroupId(id);
+    }
   };
   
-  useUpdate(didUpdate, [cardIds.length, model.name]);
+  useUpdate(didUpdate, [cardIds.length, model.name, model.items.length]);
 
   const addNewCard = () => {
     const card = new CardModel({
       name: '',
       description: '',
       variant: 'thirdy',
+      parent: model,
     });
     addCard(card);
     addCardId(card.id);
@@ -54,16 +62,20 @@ const GroupView: FC<ViewWithModel<GroupModel>> = (props) => {
   return (
     <Paper className={makeClass(['paper', tailwindcssStyles['theme']['background']['thirdy']])}>
       {!isEdit ? (
-        name && (
-          <Row>
-            <Title value={name} className={makeClass(['title'])} />
-            <Button
-              value="..."
-              variant="thirdy"
-              callback={cardEdit}
+        <Row>
+          <Title value={name} className={makeClass(['title'])} />
+          <Button
+            variant="thirdy"
+            callback={cardEdit}
+          >
+            <img
+              width={24}
+              height={24}
+              src={tailwindcssStyles['icons']['more']['src']}
+              alt={tailwindcssStyles['icons']['more']['author']}
             />
-          </Row>
-        )
+          </Button>
+        </Row>
       ) : (
         <Row>
           <Input
@@ -73,10 +85,16 @@ const GroupView: FC<ViewWithModel<GroupModel>> = (props) => {
             callback={updateNameCallback}
           />
           <Button
-            value="..."
             variant="thirdy"
             callback={cardEdit}
-          /> 
+          >
+            <img
+              width={24}
+              height={24}
+              src={tailwindcssStyles['icons']['more']['src']}
+              alt={tailwindcssStyles['icons']['more']['author']}
+            />
+          </Button> 
         </Row>
       )}
       <div className={makeClass(['cards'])}>

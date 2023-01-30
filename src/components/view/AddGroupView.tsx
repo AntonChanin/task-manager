@@ -22,9 +22,8 @@ const AddGroupView: FC<ViewExtendeble<GroupModel, VoidCallback>> = (props) => {
     didUpdate,
     makeClass,
   } = model;
-  const { cardIds } = InstanceTaskManagerStore;
   
-  useUpdate(didUpdate, [cardIds.length, name]);
+  useUpdate(didUpdate, []);
 
   return (
     <Paper className={makeClass(['paper', tailwindcssStyles['theme']['background']['primary']])}>

@@ -16,8 +16,8 @@ class GroupModel extends BaseModel {
   override items: CardModel[] = [];
 
   constructor(options: Record<string, any>) {
-    const { name, description } = options;
-    super({ name, description });
+    const { name, description, parent } = options;
+    super({ name, description, parent });
 
     this.classList = this.__default.classList;  
   };
@@ -25,6 +25,10 @@ class GroupModel extends BaseModel {
   addCard = (newCard: CardModel) => {
     this.addItem(newCard);
   };
+
+  removeCard = (removedCard: CardModel) => {
+    this.removeItem(removedCard);
+  }
  
 };
 
