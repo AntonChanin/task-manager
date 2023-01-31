@@ -30,6 +30,7 @@ const BoardView: FC<ViewWithModel<BoardModel>> = (props) => {
     const group = new GroupModel({
       name: 'name',
       description: 'lorem smorem',
+      parent: model,
     })
     addGroupId(group.id);
     addGroup(group);
