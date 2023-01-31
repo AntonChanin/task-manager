@@ -11,11 +11,11 @@ class CardModel extends BaseModel {
     },
   };
 
-  variant: Variant = 'thirdy';
+  variant: Variant = 'secondary';
 
   constructor(options: Record<string, any>) {
-    const { name, description, variant } = options;
-    super({ name, description });
+    const { name, description, parent, variant } = options;
+    super({ name, description, parent });
 
     this.variant = variant;
     this.classList = this.__default.classList;

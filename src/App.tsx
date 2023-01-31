@@ -8,7 +8,7 @@ import './App.css';
 
 function App() {
   const { boards } = InstanceTaskManagerStore;
-  const groupModel = new GroupModel({ name: 'Basics' })
+  const groupModel = new GroupModel({ name: 'Basics', parent: boards });
   groupModel.addCard(
     new CardModel({
       name: '', 

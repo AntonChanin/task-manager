@@ -7,6 +7,7 @@ import { CSSProperties, MouseEventHandler } from 'react';
 
 type BaseComponentProps = {
   value: string;
+  placeholder: string;
 }
 
 /**
@@ -37,8 +38,29 @@ type VoidCallback = {
   callback(): void;
 };
 
+/**
+ * @description callback return void
+ */
+type VoidCallbackWithProps = {
+  callback<T>(props: Record<string, T>): void;
+};
+
+type VoidCallbackWithWrapProps = {
+  callback: <T>() => (props: Record<string, T>) => void;
+};
+
+
 type Variant = 'primary' | 'secondary' | 'thirdy';
 
 type Theme = 'dark' | 'light';
 
-export type { BaseComponentProps, StylesProps, ClickButton, VoidCallback, Variant, Theme };
+export type {
+  BaseComponentProps,
+  StylesProps,
+  ClickButton,
+  VoidCallback,
+  VoidCallbackWithProps,
+  VoidCallbackWithWrapProps,
+  Variant,
+  Theme,
+};

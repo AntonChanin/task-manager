@@ -1,9 +1,10 @@
 import { FC, PropsWithChildren } from 'react';
+
 import tailwindcssStyles from '../../assets/styles';
+import createClass from '../../utils/createClass';
+import { PaperProps } from '../../types/ui';
 
-import { TPaper } from '../../types/ui';
-
-const Paper: FC<PropsWithChildren<Partial<TPaper>>> = (props) => {
+const Paper: FC<PropsWithChildren<Partial<PaperProps>>> = (props) => {
   const {
     className = 'drop-shadow-md bg-white',
     variant = 'primary',
@@ -11,7 +12,7 @@ const Paper: FC<PropsWithChildren<Partial<TPaper>>> = (props) => {
     children,
   } = props
   return (
-    <div className={`${className} ${tailwindcssStyles['ui']['paper'][variant](theme)}`}>
+    <div className={createClass([`${className}`, tailwindcssStyles['ui']['paper'][variant](theme)])}>
       {children}
     </div>
   );

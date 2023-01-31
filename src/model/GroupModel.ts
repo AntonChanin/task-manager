@@ -1,6 +1,5 @@
 import BaseModel from './BaseModel';
 import CardModel from './CardModel';
-import tailwindcssStyles from '../assets/styles';
 
 class GroupModel extends BaseModel {
   override __default = {
@@ -10,30 +9,26 @@ class GroupModel extends BaseModel {
       button: 'flex',
       cards: 'overflow-y-auto max-h-[78vh] pr-2',
       title: 'flex place-content-between py-4',
-      paper: 'w-1/4 min-w-[25%] h-max px-4  mr-2 flex-col items-start',
-      paperColor: `${tailwindcssStyles['theme']['background']['primary']}`,
+      paper: 'w-1/4 min-w-[25%] h-max px-4 mr-2 flex-col items-start',
     },
   };
 
   override items: CardModel[] = [];
 
   constructor(options: Record<string, any>) {
-    const { name, description } = options;
-    super({ name, description });
+    const { name, description, parent } = options;
+    super({ name, description, parent });
 
     this.classList = this.__default.classList;  
   };
 
   addCard = (newCard: CardModel) => {
     this.addItem(newCard);
-    this.addClass({
-      'paperColor': `${
-        this.items.length
-          ? tailwindcssStyles['theme']['background']['thirdy']
-          : tailwindcssStyles['theme']['background']['primary']
-      }`,
-    });
   };
+
+  removeCard = (removedCard: CardModel) => {
+    this.removeItem(removedCard);
+  }
  
 };
 

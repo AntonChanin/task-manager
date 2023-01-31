@@ -21,8 +21,8 @@ class BoardModel extends BaseModel {
   override items: GroupModel[] = [];
 
   constructor(options: Record<string, any>) {
-    const { name, description } = options;
-    super({ name, description });
+    const { name, description, parent } = options;
+    super({ name, description, parent });
 
     this.classList = this.__default.classList;  
   };

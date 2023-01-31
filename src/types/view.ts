@@ -1,18 +1,7 @@
-import BoardModel from '../model/BoardModel';
-import CardModel from '../model/CardModel';
-import GroupModel from '../model/GroupModel';
-
-type BoardProps = {
-    model: BoardModel;
+type ViewWithModel<T> = {
+    model: T;
 }
 
-type CardProps = {
-    model: CardModel;
-};
+type ViewExtendeble<T, P> = ViewWithModel<T> & P;
 
-type GroupProps = {
-    callback?(): void;
-    model: GroupModel;
-};
-
-export type { BoardProps, CardProps, GroupProps };
+export type { ViewWithModel, ViewExtendeble };
