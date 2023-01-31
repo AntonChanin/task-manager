@@ -8,6 +8,8 @@ class GroupModel extends BaseModel {
     classList: {
       button: 'flex',
       cards: 'overflow-y-auto max-h-[78vh] pr-2',
+      drag: 'opasity-50',
+      drop: 'opasity-100',
       title: 'flex place-content-between py-4',
       paper: 'w-1/4 min-w-[25%] h-max px-4 mr-2 flex-col items-start',
     },
@@ -16,8 +18,8 @@ class GroupModel extends BaseModel {
   override items: CardModel[] = [];
 
   constructor(options: Record<string, any>) {
-    const { name, description, parent } = options;
-    super({ name, description, parent });
+    const { name, description, draggable, parent } = options;
+    super({ name, description, draggable, parent });
 
     this.classList = this.__default.classList;  
   };

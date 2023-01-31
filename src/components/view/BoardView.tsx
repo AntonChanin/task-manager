@@ -9,6 +9,7 @@ import AddGroupView from './AddGroupView';
 import GroupView from './GroupView';
 import InstanceTaskManagerStore from '../../store';
 import useUpdate from '../../hooks/useUpdate';
+import useDragAndDrop from '../../hooks/useDragAndDrop';
 import localization from '../../assets/localization';
 import { ViewWithModel } from '../../types/view';
 
@@ -23,8 +24,10 @@ const BoardView: FC<ViewWithModel<BoardModel>> = (props) => {
     makeClass,
   } = model;
   const { cardIds, groupIds, addGroupId } = InstanceTaskManagerStore;
-
-  useUpdate(didUpdate, [cardIds.length, groupIds.length]);
+  const { isDragging, listItems, handleDragging, handleUpdateList  } = useDragAndDrop(groups);
+  
+  useUpdate(didUpdate, [cardIds.length, groupIds.length, listItems]);
+  
 
   const addNewGroup = () => {
     const group = new GroupModel({
@@ -46,7 +49,13 @@ const BoardView: FC<ViewWithModel<BoardModel>> = (props) => {
         value={localization[lang].welcomeBoard}
       />}
       <div className={makeClass(['group'])}>
-        {groups.map((group) => <GroupView key={`group__${group.id}`} model={group}/>)}
+        {(listItems as GroupModel[]).map((group) => <GroupView
+          key={`group__${group.id}`}
+          model={group}
+          isDragging={isDragging}
+          handleDragging={handleDragging}
+          handleUpdateList={handleUpdateList}
+        />)}
         <AddGroupView
           callback={addNewGroup}
           model={defaultGroup[0]}

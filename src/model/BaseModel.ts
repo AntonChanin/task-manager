@@ -11,6 +11,7 @@ class BaseModel {
     localization: 'ENG',
     items: [],
     isEdit: true,
+    draggable: false,
   };
 
   private __id = '';
@@ -20,18 +21,20 @@ class BaseModel {
 
   classList = this.__default.classList;
   description = this.__default.description;
+  draggable = this.__default.draggable;
   isEdit = this.__default.isEdit;
   items: BaseModel[] = [];
 
   constructor(options: Record<string, any>) {
-    const { name, description, localization = 'ENG', parent } = options;
+    const { name, description, localization = 'ENG', draggable = false, parent } = options;
 
     this.__id = uuid();
     this.__name = name;
     this.__localization = localization;
     this.__parent = parent;
-
+  
     this.description = description;
+    this.draggable = draggable;
     this.classList = this.__default.classList;
   };
 
@@ -67,6 +70,10 @@ class BaseModel {
 
   setEdit = (newEdit: boolean) => {
     this.isEdit = newEdit;
+  };
+
+  setParent = (newParent: BaseModel) => {
+    this.__parent = newParent;
   };
 
   get id() {

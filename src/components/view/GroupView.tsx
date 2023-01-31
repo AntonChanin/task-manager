@@ -13,10 +13,11 @@ import InstanceTaskManagerStore from '../../store';
 import localization from '../../assets/localization';
 import tailwindcssStyles from '../../assets/styles';
 import useUpdate from '../../hooks/useUpdate';
-import { ViewWithModel } from '../../types/view';
+import { ViewExtendeble } from '../../types/view';
+import { DragDropProps } from '../../types/common';
 
-const GroupView: FC<ViewWithModel<GroupModel>> = (props) => {
-  const { model } = props;
+const GroupView: FC<ViewExtendeble<GroupModel, Partial<DragDropProps>>> = (props) => {
+  const { model, isDragging, handleDragging, handleUpdateList } = props;
   const {
     id,
     name,
@@ -48,6 +49,7 @@ const GroupView: FC<ViewWithModel<GroupModel>> = (props) => {
       name: '',
       description: '',
       variant: 'thirdy',
+      draggable: true,
       parent: model,
     });
     addCard(card);
@@ -60,7 +62,7 @@ const GroupView: FC<ViewWithModel<GroupModel>> = (props) => {
   }
 
   return (
-    <Paper className={makeClass(['paper', tailwindcssStyles['theme']['background']['thirdy']])}>
+    <Paper className={makeClass(['paper', isDragging ? 'drag' : 'drop', tailwindcssStyles['theme']['background']['thirdy']])}>
       {!isEdit ? (
         <Row>
           <Title value={name} className={makeClass(['title'])} />
@@ -98,7 +100,12 @@ const GroupView: FC<ViewWithModel<GroupModel>> = (props) => {
         </Row>
       )}
       <div className={makeClass(['cards'])}>
-        {cards.map((card) => <CardView key={`card__${card.id}`} model={card} />)}
+        {cards.map((card) => <CardView
+          key={`card__${card.id}`}
+          model={card}
+          handleDragging={handleDragging}
+          handleUpdateList={handleUpdateList}
+        />)}
       </div>
       <Button
         className={makeClass(['button'])}

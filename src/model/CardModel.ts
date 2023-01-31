@@ -14,8 +14,8 @@ class CardModel extends BaseModel {
   variant: Variant = 'secondary';
 
   constructor(options: Record<string, any>) {
-    const { name, description, parent, variant } = options;
-    super({ name, description, parent });
+    const { name, description, draggable, parent, variant } = options;
+    super({ name, description, draggable, parent });
 
     this.variant = variant;
     this.classList = this.__default.classList;

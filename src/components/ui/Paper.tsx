@@ -9,10 +9,20 @@ const Paper: FC<PropsWithChildren<Partial<PaperProps>>> = (props) => {
     className = 'drop-shadow-md bg-white',
     variant = 'primary',
     theme = 'light',
+    draggable,
+    onDragEnd: handleDragEnd,
+    onDragOver: handleDragOver,
+    onDrop: handleDrop,
     children,
   } = props
   return (
-    <div className={createClass([`${className}`, tailwindcssStyles['ui']['paper'][variant](theme)])}>
+    <div
+      draggable={draggable}
+      onDragEnd={handleDragEnd}
+      onDragOver={handleDragOver}
+      onDrop={handleDrop}
+      className={createClass([`${className}`, tailwindcssStyles['ui']['paper'][variant](theme)])}
+    >
       {children}
     </div>
   );

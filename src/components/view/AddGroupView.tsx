@@ -6,7 +6,6 @@ import Paper from '../ui/Paper';
 import Title from '../ui/Title';
 import CardView from './CardView';
 import GroupModel from '../../model/GroupModel';
-import InstanceTaskManagerStore from '../../store';
 import localization from '../../assets/localization';
 import tailwindcssStyles from '../../assets/styles';
 import useUpdate from '../../hooks/useUpdate';
@@ -17,7 +16,6 @@ const AddGroupView: FC<ViewExtendeble<GroupModel, VoidCallback>> = (props) => {
   const { callback, model } = props;
   const {
     name,
-    items: cards,
     lang,
     didUpdate,
     makeClass,
@@ -28,9 +26,6 @@ const AddGroupView: FC<ViewExtendeble<GroupModel, VoidCallback>> = (props) => {
   return (
     <Paper className={makeClass(['paper', tailwindcssStyles['theme']['background']['primary']])}>
       {name && <Title value={name} className={makeClass(['title'])} />}
-      <div className={makeClass(['cards'])}>
-        {cards.map((card) => <CardView key={`card__${card.id}`} model={card} />)}
-      </div>
       <Button
         className={makeClass(['button'])}
         theme="dark"

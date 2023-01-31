@@ -7,6 +7,7 @@ type BaseProps = {
   localization: 'ENG' | 'RU',
   items: BaseModel[]
   isEdit: boolean,
+  draggable: boolean,
 };
 
 export type { BaseProps };

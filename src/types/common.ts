@@ -1,4 +1,6 @@
-import { CSSProperties, MouseEventHandler } from 'react';
+import { CSSProperties, MouseEventHandler, DragEvent } from 'react';
+
+import BaseModel from '../model/BaseModel';
 
 /**
  * @description base param for Component
@@ -32,6 +34,20 @@ type ClickButton = {
 }
 
 /**
+ * @description use for add drag-drop operation for UI
+ * @param draggable is dragged
+ * @param onDragStart div element on drag start event
+ * @param onDragEnd div element on drag end event
+ */
+type UIDragDrop = {
+  draggable: boolean;
+  onDragStart(e: DragEvent<HTMLDivElement>): void;
+  onDragEnd(e: DragEvent<HTMLDivElement>): void;
+  onDragOver(e: DragEvent<HTMLDivElement>): void;
+  onDrop(e: DragEvent<HTMLDivElement>): void;
+}
+
+/**
  * @description callback return void
  */
 type VoidCallback = {
@@ -45,10 +61,21 @@ type VoidCallbackWithProps = {
   callback<T>(props: Record<string, T>): void;
 };
 
+/**
+ * @description callback with generic props return void
+ */
 type VoidCallbackWithWrapProps = {
   callback: <T>() => (props: Record<string, T>) => void;
 };
 
+/**
+ *  @description drag-drop state for View
+ */
+type DragDropProps = {
+  isDragging: boolean
+  handleDragging(dragging: boolean): void;
+  handleUpdateList(id: string, status: BaseModel): void;
+}
 
 type Variant = 'primary' | 'secondary' | 'thirdy';
 
@@ -58,6 +85,8 @@ export type {
   BaseComponentProps,
   StylesProps,
   ClickButton,
+  DragDropProps,
+  UIDragDrop,
   VoidCallback,
   VoidCallbackWithProps,
   VoidCallbackWithWrapProps,
