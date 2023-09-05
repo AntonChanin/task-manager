@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`sum module BoardView renders correctly 1`] = `
+<div
+  className="flex-col bg-blue-400 p-4 font-sans w-full h-full border-none p-2 mb-4 text-start"
+>
+  <div
+    className="font-sans font-bold my-2 w-max text-white text-2xl"
+  >
+    Welcome board
+  </div>
+  <div
+    className="flex max-w-full overflow-x-auto overflow-y-hidden h-[95%]"
+  >
+    <div
+      className="w-1/4 min-w-[25%] h-max px-4 mr-2 flex-col items-start bg-blue-500 border-radius border-none rounded-xl p-2 mb-4 text-start"
+    >
+      <div
+        className="overflow-y-auto max-h-[78vh] pr-2"
+      />
+      <button
+        className="text-white border-none outline-none m-2 hover: text-gray-100
+     flex"
+        onClick={[Function]}
+      >
+        + Add another list
+      </button>
+    </div>
+  </div>
+</div>
+`;
