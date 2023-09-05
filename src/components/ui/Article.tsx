@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import React, { FC } from 'react';
 
 import createClass from '../../utils/createClass';
 import { ArticleProps } from '../../types/ui';

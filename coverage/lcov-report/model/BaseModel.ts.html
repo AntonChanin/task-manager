@@ -257,90 +257,90 @@ import { BaseProps } from '../types/model';
 &nbsp;
 class BaseModel {
 &nbsp;
-  readonly __default: BaseProps = {
-    classList: { },
-    name: 'BaseModel',
-    description: 'lorem ipsum',
-    localization: 'ENG',
-    items: [],
-    isEdit: true,
-  };
-&nbsp;
-  private __id = '';
-  private __name = this.__default.name;
-  private __parent?: BaseModel;
-  private __localization = this.__default.localization;
-&nbsp;
-  classList = this.__default.classList;
-  description = this.__default.description;
-  isEdit = this.__default.isEdit;
-  items: BaseModel[] = [];
-&nbsp;
-  constructor(options: Record&lt;string, any&gt;) {
-    const { name, description, localization = 'ENG', parent } = options;
-&nbsp;
-    this.__id = uuid();
-    this.__name = name;
-    this.__localization = localization;
-    this.__parent = parent;
-&nbsp;
-    this.description = description;
-    this.classList = this.__default.classList;
-  };
-&nbsp;
-  protected addItem = <span class="fstat-no" title="function not covered" >(n</span>ewItem: BaseModel) =&gt; {
-<span class="cstat-no" title="statement not covered" >    this.items = [</span>
-      ...this.items,
-      newItem,
-    ];
-  };
-&nbsp;
-  protected removeItem = <span class="fstat-no" title="function not covered" >(r</span>emovedItem: BaseModel) =&gt; {
-<span class="cstat-no" title="statement not covered" >    this.items = this.items.filter(<span class="fstat-no" title="function not covered" >(m</span>odel) =&gt; <span class="cstat-no" title="statement not covered" >model.id !== removedItem.id)</span>;</span>
-  };
-&nbsp;
-  removeItemById = <span class="fstat-no" title="function not covered" >(i</span>d: string) =&gt; {
-<span class="cstat-no" title="statement not covered" >    this.items = this.items.filter(<span class="fstat-no" title="function not covered" >(m</span>odel) =&gt; <span class="cstat-no" title="statement not covered" >model.id !== id)</span>;</span>
-  }
-&nbsp;
-  removeFromParent = <span class="fstat-no" title="function not covered" >()</span> =&gt; {
-<span class="cstat-no" title="statement not covered" >    this.parent?.removeItemById(this.id);</span>
-  }
-&nbsp;
-  addClass = <span class="fstat-no" title="function not covered" >(n</span>ewClasses: Record&lt;string, string&gt;) =&gt; {
-<span class="cstat-no" title="statement not covered" >    this.classList = {</span>
-      ...this.classList,
-      ...newClasses,
+    readonly __default: BaseProps = {
+        classList: { },
+        name: 'BaseModel',
+        description: 'lorem ipsum',
+        localization: 'ENG',
+        items: [],
+        isEdit: true,
     };
-  };
 &nbsp;
-  makeClass = (classes: string[]) =&gt; createClass(classes, this.classList);
+    private __id = '';
+    private __name = this.__default.name;
+    private __parent?: BaseModel;
+    private __localization = this.__default.localization;
 &nbsp;
-  didUpdate = () =&gt; {};
+    classList = this.__default.classList;
+    description = this.__default.description;
+    isEdit = this.__default.isEdit;
+    items: BaseModel[] = [];
 &nbsp;
-  setEdit = <span class="fstat-no" title="function not covered" >(n</span>ewEdit: boolean) =&gt; {
-<span class="cstat-no" title="statement not covered" >    this.isEdit = newEdit;</span>
-  };
+    constructor(options: Record&lt;string, any&gt;) {
+        const { name, description, localization = 'ENG', parent } = options;
 &nbsp;
-  get id() {
-    return this.__id;
-  };
+        this.__id = uuid();
+        this.__name = name;
+        this.__localization = localization;
+        this.__parent = parent;
 &nbsp;
-<span class="fstat-no" title="function not covered" >  ge</span>t parent() {
-<span class="cstat-no" title="statement not covered" >    return this.__parent;</span>
-  };
+        this.description = description;
+        this.classList = this.__default.classList;
+    };
 &nbsp;
-  get name() {
-    return this.__name;
-  };
+    protected addItem = <span class="fstat-no" title="function not covered" >(n</span>ewItem: BaseModel) =&gt; {
+<span class="cstat-no" title="statement not covered" >        this.items = [</span>
+        ...this.items,
+        newItem,
+        ];
+    };
 &nbsp;
-<span class="fstat-no" title="function not covered" >  se</span>t name(newVName: string) {
-<span class="cstat-no" title="statement not covered" >    this.__name = newVName;</span>
-  }
+    protected removeItem = <span class="fstat-no" title="function not covered" >(r</span>emovedItem: BaseModel) =&gt; {
+<span class="cstat-no" title="statement not covered" >        this.items = this.items.filter(<span class="fstat-no" title="function not covered" >(m</span>odel) =&gt; <span class="cstat-no" title="statement not covered" >model.id !== removedItem.id)</span>;</span>
+    };
 &nbsp;
-  get lang() {
-    return this.__localization;
-  };
+    removeItemById = <span class="fstat-no" title="function not covered" >(i</span>d: string) =&gt; {
+<span class="cstat-no" title="statement not covered" >        this.items = this.items.filter(<span class="fstat-no" title="function not covered" >(m</span>odel) =&gt; <span class="cstat-no" title="statement not covered" >model.id !== id)</span>;</span>
+    }
+&nbsp;
+    removeFromParent = <span class="fstat-no" title="function not covered" >()</span> =&gt; {
+<span class="cstat-no" title="statement not covered" >        this.parent?.removeItemById(this.id);</span>
+    }
+&nbsp;
+    addClass = <span class="fstat-no" title="function not covered" >(n</span>ewClasses: Record&lt;string, string&gt;) =&gt; {
+<span class="cstat-no" title="statement not covered" >        this.classList = {</span>
+        ...this.classList,
+        ...newClasses,
+        };
+    };
+&nbsp;
+    makeClass = (classes: string[]) =&gt; createClass(classes, this.classList);
+&nbsp;
+    didUpdate = () =&gt; {};
+&nbsp;
+    setEdit = <span class="fstat-no" title="function not covered" >(n</span>ewEdit: boolean) =&gt; {
+<span class="cstat-no" title="statement not covered" >        this.isEdit = newEdit;</span>
+    };
+&nbsp;
+    get id() {
+        return this.__id;
+    };
+&nbsp;
+<span class="fstat-no" title="function not covered" >    ge</span>t parent() {
+<span class="cstat-no" title="statement not covered" >        return this.__parent;</span>
+    };
+&nbsp;
+    get name() {
+        return this.__name;
+    };
+&nbsp;
+<span class="fstat-no" title="function not covered" >    se</span>t name(newVName: string) {
+<span class="cstat-no" title="statement not covered" >        this.__name = newVName;</span>
+    }
+&nbsp;
+    get lang() {
+        return this.__localization;
+    };
 &nbsp;
 };
 &nbsp;
@@ -352,7 +352,7 @@ export default BaseModel;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-09-05T12:35:43.920Z
+                at 2023-09-05T13:13:15.376Z
             </div>
         <script src="../prettify.js"></script>
         <script>

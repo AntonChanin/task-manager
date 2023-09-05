@@ -309,99 +309,99 @@ import useUpdate from '../../hooks/useUpdate';
 import { ViewWithModel } from '../../types/view';
 &nbsp;
 const GroupView: FC&lt;ViewWithModel&lt;GroupModel&gt;&gt; = (props) =&gt; {
-  const { model } = props;
-  const {
-    id,
-    name,
-    items: cards,
-    lang,
-    setEdit,
-    addCard,
-    didUpdate,
-    makeClass,
-    removeFromParent,
-  } = model;
-  const { cardIds, addCardId, removeGroupId } = InstanceTaskManagerStore;
-  const [isEdit, setIsEdit] = useState(model.isEdit);
+    const { model } = props;
+    const {
+        id,
+        name,
+        items: cards,
+        lang,
+        setEdit,
+        addCard,
+        didUpdate,
+        makeClass,
+        removeFromParent,
+    } = model;
+    const { cardIds, addCardId, removeGroupId } = InstanceTaskManagerStore;
+    const [isEdit, setIsEdit] = useState(model.isEdit);
 &nbsp;
-  const cardEdit = <span class="fstat-no" title="function not covered" >()</span> =&gt;  {
-<span class="cstat-no" title="statement not covered" >    if (model.name.trimEnd()) {</span>
-<span class="cstat-no" title="statement not covered" >      setIsEdit(!isEdit);</span>
-<span class="cstat-no" title="statement not covered" >      setEdit(isEdit);</span>
-    } else {
-<span class="cstat-no" title="statement not covered" >      removeFromParent();</span>
-<span class="cstat-no" title="statement not covered" >      removeGroupId(id);</span>
+    const cardEdit = <span class="fstat-no" title="function not covered" >()</span> =&gt;  {
+<span class="cstat-no" title="statement not covered" >        if (model.name.trimEnd()) {</span>
+<span class="cstat-no" title="statement not covered" >        setIsEdit(!isEdit);</span>
+<span class="cstat-no" title="statement not covered" >        setEdit(isEdit);</span>
+        } else {
+<span class="cstat-no" title="statement not covered" >        removeFromParent();</span>
+<span class="cstat-no" title="statement not covered" >        removeGroupId(id);</span>
+        }
+    };
+    
+    useUpdate(didUpdate, [cardIds.length, model.name, model.items.length]);
+&nbsp;
+    const addNewCard = <span class="fstat-no" title="function not covered" >()</span> =&gt; {
+        const card = <span class="cstat-no" title="statement not covered" >new CardModel({</span>
+        name: '',
+        description: '',
+        variant: 'thirdy',
+        parent: model,
+        });
+<span class="cstat-no" title="statement not covered" >        addCard(card);</span>
+<span class="cstat-no" title="statement not covered" >        addCardId(card.id);</span>
+    };
+&nbsp;
+    const updateNameCallback: &lt;T&gt;(props: Record&lt;string, T&gt;) =&gt; void = <span class="fstat-no" title="function not covered" >(p</span>rops) =&gt; {
+        const { value } = <span class="cstat-no" title="statement not covered" >props;</span>
+<span class="cstat-no" title="statement not covered" >        model.name = `${value}`;</span>
     }
-  };
-  
-  useUpdate(didUpdate, [cardIds.length, model.name, model.items.length]);
 &nbsp;
-  const addNewCard = <span class="fstat-no" title="function not covered" >()</span> =&gt; {
-    const card = <span class="cstat-no" title="statement not covered" >new CardModel({</span>
-      name: '',
-      description: '',
-      variant: 'thirdy',
-      parent: model,
-    });
-<span class="cstat-no" title="statement not covered" >    addCard(card);</span>
-<span class="cstat-no" title="statement not covered" >    addCardId(card.id);</span>
-  };
-&nbsp;
-  const updateNameCallback: &lt;T&gt;(props: Record&lt;string, T&gt;) =&gt; void = <span class="fstat-no" title="function not covered" >(p</span>rops) =&gt; {
-    const { value } = <span class="cstat-no" title="statement not covered" >props;</span>
-<span class="cstat-no" title="statement not covered" >    model.name = `${value}`;</span>
-  }
-&nbsp;
-  return (
-    &lt;Paper className={makeClass(['paper', tailwindcssStyles['theme']['background']['thirdy']])}&gt;
-      {!isEdit ? (
-<span class="branch-0 cbranch-no" title="branch not covered" >        &lt;Row&gt;</span>
-          &lt;Title value={name} className={makeClass(['title'])} /&gt;
-          &lt;Button
-            variant="thirdy"
-            callback={cardEdit}
-          &gt;
-            &lt;img
-              width={24}
-              height={24}
-              src={tailwindcssStyles['icons']['more']['src']}
-              alt={tailwindcssStyles['icons']['more']['author']}
+    return (
+        &lt;Paper className={makeClass(['paper', tailwindcssStyles['theme']['background']['thirdy']])}&gt;
+        {!isEdit ? (
+<span class="branch-0 cbranch-no" title="branch not covered" >            &lt;Row&gt;</span>
+            &lt;Title value={name} className={makeClass(['title'])} /&gt;
+            &lt;Button
+                variant="thirdy"
+                callback={cardEdit}
+            &gt;
+                &lt;img
+                    width={24}
+                    height={24}
+                    src={tailwindcssStyles['icons']['more']['src']}
+                    alt={tailwindcssStyles['icons']['more']['author']}
+                /&gt;
+            &lt;/Button&gt;
+            &lt;/Row&gt;
+        ) : (
+            &lt;Row&gt;
+            &lt;Input
+                value={name}
+                variant="thirdy"
+                placeholder={localization[lang].editGroupTitlePlaceholder}
+                callback={updateNameCallback}
             /&gt;
-          &lt;/Button&gt;
-        &lt;/Row&gt;
-      ) : (
-        &lt;Row&gt;
-          &lt;Input
-            value={name}
+            &lt;Button
+                variant="thirdy"
+                callback={cardEdit}
+            &gt;
+                &lt;img
+                    width={24}
+                    height={24}
+                    src={tailwindcssStyles['icons']['more']['src']}
+                    alt={tailwindcssStyles['icons']['more']['author']}
+                /&gt;
+            &lt;/Button&gt; 
+            &lt;/Row&gt;
+        )}
+        &lt;div className={makeClass(['cards'])}&gt;
+            {cards.map(<span class="fstat-no" title="function not covered" >(c</span>ard) =&gt; <span class="cstat-no" title="statement not covered" >&lt;CardView key={`card__${card.id}`} model={card} /&gt;)</span>}
+        &lt;/div&gt;
+        &lt;Button
+            className={makeClass(['button'])}
+            theme="light"
+            value={`+ ${localization[lang].addCard}`}
             variant="thirdy"
-            placeholder={localization[lang].editGroupTitlePlaceholder}
-            callback={updateNameCallback}
-          /&gt;
-          &lt;Button
-            variant="thirdy"
-            callback={cardEdit}
-          &gt;
-            &lt;img
-              width={24}
-              height={24}
-              src={tailwindcssStyles['icons']['more']['src']}
-              alt={tailwindcssStyles['icons']['more']['author']}
-            /&gt;
-          &lt;/Button&gt; 
-        &lt;/Row&gt;
-      )}
-      &lt;div className={makeClass(['cards'])}&gt;
-        {cards.map(<span class="fstat-no" title="function not covered" >(c</span>ard) =&gt; <span class="cstat-no" title="statement not covered" >&lt;CardView key={`card__${card.id}`} model={card} /&gt;)</span>}
-      &lt;/div&gt;
-      &lt;Button
-        className={makeClass(['button'])}
-        theme="light"
-        value={`+ ${localization[lang].addCard}`}
-        variant="thirdy"
-        callback={addNewCard}
-      /&gt;
-    &lt;/Paper&gt;
-  );
+            callback={addNewCard}
+        /&gt;
+        &lt;/Paper&gt;
+    );
 };
 &nbsp;
 export default observer(GroupView);
@@ -412,7 +412,7 @@ export default observer(GroupView);
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-09-05T12:35:43.920Z
+                at 2023-09-05T13:13:15.376Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

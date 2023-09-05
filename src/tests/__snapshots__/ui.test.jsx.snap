@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UI snapshots: Article renders correctly 1`] = `
+<article
+  className="font-sans"
+>
+  description
+</article>
+`;
+
+exports[`UI snapshots: Button renders correctly 1`] = `
+<button
+  className="bg-gray-400 text-white border-none outline-none m-2 hover:bg-gray-600"
+  onClick={[Function]}
+>
+  description
+</button>
+`;
+
+exports[`UI snapshots: Input renders correctly 1`] = `
+<input
+  className="w-11/12 w-full outline-none border-none m-auto"
+  onChange={[Function]}
+  placeholder=""
+  value="name"
+/>
+`;
+
+exports[`UI snapshots: Paper renders correctly 1`] = `
+<div
+  className="drop-shadow-md bg-white border-none p-2 mb-4 text-start"
+/>
+`;
+
+exports[`UI snapshots: Row renders correctly 1`] = `
+<div
+  className="flex justify-between"
+/>
+`;
+
+exports[`UI snapshots: Textarea renders correctly 1`] = `
+<textarea
+  className="w-full outline-none border-none m-auto"
+  onChange={[Function]}
+  placeholder=""
+  value="description"
+/>
+`;
+
+exports[`UI snapshots: Title renders correctly 1`] = `
+<div
+  className="font-sans font-bold"
+>
+  title
+</div>
+`;
