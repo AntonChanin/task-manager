@@ -11,10 +11,10 @@ class BoardModel extends BaseModel {
             paper: 'flex-col bg-blue-400 p-4 font-sans w-full h-full',
         },
         items: [
-        new GroupModel({
-            name: '',
-            description: 'init value',
-        })
+            new GroupModel({
+                name: '',
+                description: 'init value',
+            }),
         ],
     };
 

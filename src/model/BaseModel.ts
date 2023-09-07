@@ -56,8 +56,8 @@ class BaseModel {
 
     addClass = (newClasses: Record<string, string>) => {
         this.classList = {
-        ...this.classList,
-        ...newClasses,
+            ...this.classList,
+            ...newClasses,
         };
     };
 

@@ -33,11 +33,11 @@ const GroupView: FC<ViewWithModel<GroupModel>> = (props) => {
 
     const cardEdit = () =>  {
         if (model.name.trimEnd()) {
-        setIsEdit(!isEdit);
-        setEdit(isEdit);
+            setIsEdit(!isEdit);
+            setEdit(isEdit);
         } else {
-        removeFromParent();
-        removeGroupId(id);
+            removeFromParent();
+            removeGroupId(id);
         }
     };
     
@@ -45,10 +45,10 @@ const GroupView: FC<ViewWithModel<GroupModel>> = (props) => {
 
     const addNewCard = () => {
         const card = new CardModel({
-        name: '',
-        description: '',
-        variant: 'thirdy',
-        parent: model,
+            name: '',
+            description: '',
+            variant: 'thirdy',
+            parent: model,
         });
         addCard(card);
         addCardId(card.id);

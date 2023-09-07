@@ -14,17 +14,23 @@ import InstanceTaskManagerStore from '../store';
 const { boards } = InstanceTaskManagerStore;
 
 describe('View snapshots:', () => {
-    it('AddGroupView renders correctly', () => {
+    const group = new GroupModel({
+        name: 'name',
+        description: 'lorem smorem',
+        parent: new BoardModel({ name: 'test' }),
+    });
+    const card = new CardModel({
+        name: '',
+        description: '',
+        variant: 'thirdy',
+        parent: group,
+    });
+    group.addCard(card);
+    it('AddGroupView renders correctly', () => { 
         const tree = renderer
             .create(
                 <AddGroupView
-                    model={
-                        new GroupModel({
-                            name: 'name',
-                            description: 'lorem smorem',
-                            parent: new BoardModel({ name: 'test' }),
-                        })
-                    }
+                    model={group}
                 />
             )
             .toJSON();
@@ -40,18 +46,7 @@ describe('View snapshots:', () => {
         const tree = renderer
             .create(
                 <CardView
-                    model={
-                        new CardModel({
-                            name: '',
-                            description: '',
-                            variant: 'thirdy',
-                            parent: new GroupModel({
-                                name: 'name',
-                                description: 'lorem smorem',
-                                parent: new BoardModel({ name: 'test' }),
-                            }),
-                        })
-                    }
+                    model={card}
                 />
             )
             .toJSON();
@@ -61,13 +56,7 @@ describe('View snapshots:', () => {
         const tree = renderer
             .create(
                 <GroupView
-                    model={
-                        new GroupModel({
-                            name: 'name',
-                            description: 'lorem smorem',
-                            parent: new BoardModel({ name: 'test' }),
-                        })
-                    }
+                    model={group}
                 />
             )
             .toJSON();

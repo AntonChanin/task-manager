@@ -11,7 +11,30 @@ exports[`View snapshots: AddGroupView renders correctly 1`] = `
   </div>
   <div
     className="overflow-y-auto max-h-[78vh] pr-2"
-  />
+  >
+    <div
+      className="drop-shadow-md bg-white border-radius border-none rounded-xl p-2 mb-4 text-start"
+    >
+      <button
+        className="text-gray-400 border-none outline-none m-2 hover: text-gray-600
+     opacity-0 flex ml-auto hover:opacity-100 absolute top-0 right-0"
+        onClick={[Function]}
+      >
+        <img
+          alt="Draw icons created by Gregor Cresnar - Flaticon"
+          height={24}
+          src="src/assets/icons/edit.png"
+          width={24}
+        />
+      </button>
+      <textarea
+        className="w-full outline-none border-none m-auto"
+        onChange={[Function]}
+        placeholder="Add new card description"
+        value=""
+      />
+    </div>
+  </div>
   <button
     className="text-white border-none outline-none m-2 hover: text-gray-100
      flex"
@@ -104,7 +127,30 @@ exports[`View snapshots: GroupView renders correctly 1`] = `
   </div>
   <div
     className="overflow-y-auto max-h-[78vh] pr-2"
-  />
+  >
+    <div
+      className="drop-shadow-md bg-white border-radius border-none rounded-xl p-2 mb-4 text-start"
+    >
+      <button
+        className="text-gray-400 border-none outline-none m-2 hover: text-gray-600
+     opacity-0 flex ml-auto hover:opacity-100 absolute top-0 right-0"
+        onClick={[Function]}
+      >
+        <img
+          alt="Draw icons created by Gregor Cresnar - Flaticon"
+          height={24}
+          src="src/assets/icons/edit.png"
+          width={24}
+        />
+      </button>
+      <textarea
+        className="w-full outline-none border-none m-auto"
+        onChange={[Function]}
+        placeholder="Add new card description"
+        value=""
+      />
+    </div>
+  </div>
   <button
     className="text-gray-400 border-none outline-none m-2 hover: text-gray-600
      flex"
