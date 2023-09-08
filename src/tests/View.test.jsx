@@ -26,6 +26,8 @@ describe('View snapshots:', () => {
         parent: group,
     });
     group.addCard(card);
+    boards[0].addGroup(group);
+
     it('AddGroupView renders correctly', () => { 
         const tree = renderer
             .create(

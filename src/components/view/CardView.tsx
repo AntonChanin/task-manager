@@ -19,11 +19,11 @@ const CardView: FC<ViewWithModel<CardModel>> = (props) => {
 
     const cardEdit = () =>  {
         if (model.description.trimEnd()) {
-        setIsEdit(!isEdit);
-        setEdit(isEdit);
+            setIsEdit(!isEdit);
+            setEdit(isEdit);
         } else {
-        removeFromParent();
-        removeCardId(id)
+            removeFromParent();
+            removeCardId(id)
         };
     };
 
@@ -41,10 +41,10 @@ const CardView: FC<ViewWithModel<CardModel>> = (props) => {
                 callback={cardEdit}
             >
                 <img
-                width={24}
-                height={24}
-                src={tailwindcssStyles['icons']['edit']['src']}
-                alt={tailwindcssStyles['icons']['edit']['author']}
+                    width={24}
+                    height={24}
+                    src={tailwindcssStyles['icons']['edit']['src']}
+                    alt={tailwindcssStyles['icons']['edit']['author']}
                 />
             </Button>
             {!isEdit

@@ -28,8 +28,8 @@ const Textarea: FC<Partial<EditProps>> = (props) => {
         placeholder={placeholder}
         className={
             createClass([
-            tailwindcssStyles['ui']['edit'][variant](theme),
-            `${className}`
+                tailwindcssStyles['ui']['edit'][variant](theme),
+                `${className}`
             ])
         }
     />

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1694072038303" clover="3.2.0">
-  <project timestamp="1694072038304" name="All files">
-    <metrics statements="174" coveredstatements="137" conditionals="35" coveredconditionals="25" methods="67" coveredmethods="47" elements="276" coveredelements="209" complexity="0" loc="174" ncloc="174" packages="8" files="26" classes="26"/>
+<coverage generated="1694162760594" clover="3.2.0">
+  <project timestamp="1694162760594" name="All files">
+    <metrics statements="174" coveredstatements="142" conditionals="35" coveredconditionals="27" methods="67" coveredmethods="52" elements="276" coveredelements="221" complexity="0" loc="174" ncloc="174" packages="8" files="26" classes="26"/>
     <package name="assets.localization">
       <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="index.ts" path="A:\WebProjects\task-manager\src\assets\localization\index.ts">
@@ -18,7 +18,7 @@
       </file>
     </package>
     <package name="assets.styles">
-      <metrics statements="13" coveredstatements="9" conditionals="4" coveredconditionals="4" methods="9" coveredmethods="5"/>
+      <metrics statements="13" coveredstatements="13" conditionals="4" coveredconditionals="4" methods="9" coveredmethods="9"/>
       <file name="icons.ts" path="A:\WebProjects\task-manager\src\assets\styles\icons.ts">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="2" type="stmt"/>
@@ -32,76 +32,76 @@
         <line num="1" count="2" type="stmt"/>
       </file>
       <file name="ui.ts" path="A:\WebProjects\task-manager\src\assets\styles\ui.ts">
-        <metrics statements="10" coveredstatements="6" conditionals="4" coveredconditionals="4" methods="9" coveredmethods="5"/>
+        <metrics statements="10" coveredstatements="10" conditionals="4" coveredconditionals="4" methods="9" coveredmethods="9"/>
         <line num="3" count="2" type="stmt"/>
         <line num="5" count="1" type="stmt"/>
-        <line num="6" count="0" type="stmt"/>
-        <line num="7" count="7" type="stmt"/>
-        <line num="12" count="0" type="stmt"/>
-        <line num="13" count="0" type="stmt"/>
-        <line num="14" count="6" type="stmt"/>
-        <line num="17" count="6" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="7" count="10" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="14" count="8" type="stmt"/>
+        <line num="17" count="8" type="stmt"/>
         <line num="18" count="2" type="stmt"/>
-        <line num="19" count="0" type="stmt"/>
+        <line num="19" count="1" type="stmt"/>
       </file>
     </package>
     <package name="components.ui">
-      <metrics statements="31" coveredstatements="23" conditionals="17" coveredconditionals="13" methods="10" coveredmethods="7"/>
+      <metrics statements="31" coveredstatements="23" conditionals="17" coveredconditionals="15" methods="10" coveredmethods="7"/>
       <file name="Article.tsx" path="A:\WebProjects\task-manager\src\components\ui\Article.tsx">
-        <metrics statements="2" coveredstatements="2" conditionals="2" coveredconditionals="1" methods="1" coveredmethods="1"/>
-        <line num="6" count="2" type="cond" truecount="1" falsecount="1"/>
-        <line num="7" count="1" type="stmt"/>
+        <metrics statements="2" coveredstatements="2" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <line num="6" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="7" count="2" type="stmt"/>
       </file>
       <file name="Button.tsx" path="A:\WebProjects\task-manager\src\components\ui\Button.tsx">
         <metrics statements="6" coveredstatements="4" conditionals="6" coveredconditionals="6" methods="2" coveredmethods="1"/>
         <line num="7" count="2" type="stmt"/>
-        <line num="16" count="8" type="stmt"/>
-        <line num="17" count="8" type="stmt"/>
+        <line num="16" count="12" type="stmt"/>
+        <line num="17" count="12" type="stmt"/>
         <line num="18" count="0" type="stmt"/>
         <line num="19" count="0" type="stmt"/>
-        <line num="21" count="8" type="stmt"/>
+        <line num="21" count="12" type="stmt"/>
       </file>
       <file name="Input.tsx" path="A:\WebProjects\task-manager\src\components\ui\Input.tsx">
         <metrics statements="8" coveredstatements="5" conditionals="2" coveredconditionals="1" methods="2" coveredmethods="1"/>
         <line num="7" count="2" type="stmt"/>
-        <line num="15" count="2" type="stmt"/>
-        <line num="16" count="2" type="stmt"/>
-        <line num="18" count="2" type="stmt"/>
+        <line num="15" count="3" type="stmt"/>
+        <line num="16" count="3" type="stmt"/>
+        <line num="18" count="3" type="stmt"/>
         <line num="19" count="0" type="stmt"/>
         <line num="20" count="0" type="stmt"/>
         <line num="21" count="0" type="stmt"/>
-        <line num="24" count="2" type="stmt"/>
+        <line num="24" count="3" type="stmt"/>
       </file>
       <file name="Paper.tsx" path="A:\WebProjects\task-manager\src\components\ui\Paper.tsx">
         <metrics statements="3" coveredstatements="3" conditionals="3" coveredconditionals="3" methods="1" coveredmethods="1"/>
         <line num="7" count="2" type="stmt"/>
-        <line num="13" count="8" type="stmt"/>
-        <line num="14" count="8" type="stmt"/>
+        <line num="13" count="11" type="stmt"/>
+        <line num="14" count="11" type="stmt"/>
       </file>
       <file name="Row.tsx" path="A:\WebProjects\task-manager\src\components\ui\Row.tsx">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="5" count="2" type="stmt"/>
-        <line num="6" count="2" type="stmt"/>
+        <line num="6" count="3" type="stmt"/>
       </file>
       <file name="Textarea.tsx" path="A:\WebProjects\task-manager\src\components\ui\Textarea.tsx">
         <metrics statements="8" coveredstatements="5" conditionals="2" coveredconditionals="1" methods="2" coveredmethods="1"/>
         <line num="7" count="2" type="stmt"/>
-        <line num="15" count="4" type="stmt"/>
-        <line num="16" count="4" type="stmt"/>
-        <line num="18" count="4" type="stmt"/>
+        <line num="15" count="7" type="stmt"/>
+        <line num="16" count="7" type="stmt"/>
+        <line num="18" count="7" type="stmt"/>
         <line num="19" count="0" type="stmt"/>
         <line num="20" count="0" type="stmt"/>
         <line num="21" count="0" type="stmt"/>
-        <line num="24" count="4" type="stmt"/>
+        <line num="24" count="7" type="stmt"/>
       </file>
       <file name="Title.tsx" path="A:\WebProjects\task-manager\src\components\ui\Title.tsx">
-        <metrics statements="2" coveredstatements="2" conditionals="2" coveredconditionals="1" methods="1" coveredmethods="1"/>
-        <line num="10" count="2" type="cond" truecount="1" falsecount="1"/>
-        <line num="11" count="3" type="stmt"/>
+        <metrics statements="2" coveredstatements="2" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <line num="10" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="11" count="4" type="stmt"/>
       </file>
     </package>
     <package name="components.view">
-      <metrics statements="53" coveredstatements="32" conditionals="10" coveredconditionals="4" methods="13" coveredmethods="6"/>
+      <metrics statements="53" coveredstatements="33" conditionals="10" coveredconditionals="4" methods="13" coveredmethods="7"/>
       <file name="AddGroupView.tsx" path="A:\WebProjects\task-manager\src\components\view\AddGroupView.tsx">
         <metrics statements="6" coveredstatements="6" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
         <line num="15" count="1" type="stmt"/>
@@ -112,7 +112,7 @@
         <line num="31" count="1" type="stmt"/>
       </file>
       <file name="BoardView.tsx" path="A:\WebProjects\task-manager\src\components\view\BoardView.tsx">
-        <metrics statements="11" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="1"/>
+        <metrics statements="11" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="2"/>
         <line num="15" count="1" type="stmt"/>
         <line num="16" count="1" type="stmt"/>
         <line num="24" count="1" type="stmt"/>
@@ -123,49 +123,49 @@
         <line num="35" count="0" type="stmt"/>
         <line num="36" count="0" type="stmt"/>
         <line num="39" count="1" type="stmt"/>
-        <line num="49" count="0" type="stmt"/>
+        <line num="49" count="1" type="stmt"/>
       </file>
       <file name="CardView.tsx" path="A:\WebProjects\task-manager\src\components\view\CardView.tsx">
         <metrics statements="15" coveredstatements="8" conditionals="4" coveredconditionals="1" methods="3" coveredmethods="1"/>
         <line num="14" count="1" type="stmt"/>
-        <line num="15" count="3" type="stmt"/>
-        <line num="16" count="3" type="stmt"/>
-        <line num="17" count="3" type="stmt"/>
-        <line num="18" count="3" type="stmt"/>
-        <line num="20" count="3" type="stmt"/>
+        <line num="15" count="4" type="stmt"/>
+        <line num="16" count="4" type="stmt"/>
+        <line num="17" count="4" type="stmt"/>
+        <line num="18" count="4" type="stmt"/>
+        <line num="20" count="4" type="stmt"/>
         <line num="21" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="22" count="0" type="stmt"/>
         <line num="23" count="0" type="stmt"/>
         <line num="25" count="0" type="stmt"/>
         <line num="26" count="0" type="stmt"/>
-        <line num="31" count="3" type="stmt"/>
+        <line num="31" count="4" type="stmt"/>
         <line num="32" count="0" type="stmt"/>
         <line num="33" count="0" type="stmt"/>
-        <line num="36" count="3" type="stmt"/>
+        <line num="36" count="4" type="stmt"/>
       </file>
       <file name="GroupView.tsx" path="A:\WebProjects\task-manager\src\components\view\GroupView.tsx">
         <metrics statements="21" coveredstatements="11" conditionals="4" coveredconditionals="1" methods="5" coveredmethods="2"/>
         <line num="18" count="1" type="stmt"/>
-        <line num="19" count="1" type="stmt"/>
-        <line num="30" count="1" type="stmt"/>
-        <line num="31" count="1" type="stmt"/>
-        <line num="32" count="1" type="stmt"/>
-        <line num="34" count="1" type="stmt"/>
+        <line num="19" count="2" type="stmt"/>
+        <line num="30" count="2" type="stmt"/>
+        <line num="31" count="2" type="stmt"/>
+        <line num="32" count="2" type="stmt"/>
+        <line num="34" count="2" type="stmt"/>
         <line num="35" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="36" count="0" type="stmt"/>
         <line num="37" count="0" type="stmt"/>
         <line num="39" count="0" type="stmt"/>
         <line num="40" count="0" type="stmt"/>
-        <line num="44" count="1" type="stmt"/>
-        <line num="46" count="1" type="stmt"/>
+        <line num="44" count="2" type="stmt"/>
+        <line num="46" count="2" type="stmt"/>
         <line num="47" count="0" type="stmt"/>
         <line num="53" count="0" type="stmt"/>
         <line num="54" count="0" type="stmt"/>
-        <line num="57" count="1" type="stmt"/>
+        <line num="57" count="2" type="stmt"/>
         <line num="58" count="0" type="stmt"/>
         <line num="59" count="0" type="stmt"/>
-        <line num="62" count="1" type="stmt"/>
-        <line num="101" count="1" type="stmt"/>
+        <line num="62" count="2" type="stmt"/>
+        <line num="101" count="2" type="stmt"/>
       </file>
     </package>
     <package name="hooks">
@@ -173,7 +173,7 @@
       <file name="useUpdate.ts" path="A:\WebProjects\task-manager\src\hooks\useUpdate.ts">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
         <line num="3" count="1" type="stmt"/>
-        <line num="4" count="4" type="stmt"/>
+        <line num="4" count="5" type="stmt"/>
       </file>
     </package>
     <package name="model">
@@ -196,7 +196,7 @@
         <line num="34" count="10" type="stmt"/>
         <line num="35" count="10" type="stmt"/>
         <line num="38" count="10" type="stmt"/>
-        <line num="39" count="5" type="stmt"/>
+        <line num="39" count="6" type="stmt"/>
         <line num="45" count="10" type="stmt"/>
         <line num="46" count="1" type="stmt"/>
         <line num="49" count="10" type="stmt"/>
@@ -205,15 +205,15 @@
         <line num="54" count="1" type="stmt"/>
         <line num="57" count="10" type="stmt"/>
         <line num="58" count="1" type="stmt"/>
-        <line num="64" count="16" type="stmt"/>
+        <line num="64" count="20" type="stmt"/>
         <line num="66" count="10" type="stmt"/>
         <line num="68" count="10" type="stmt"/>
         <line num="69" count="1" type="stmt"/>
-        <line num="73" count="12" type="stmt"/>
+        <line num="73" count="16" type="stmt"/>
         <line num="77" count="2" type="stmt"/>
-        <line num="81" count="16" type="stmt"/>
+        <line num="81" count="18" type="stmt"/>
         <line num="85" count="1" type="stmt"/>
-        <line num="89" count="7" type="stmt"/>
+        <line num="89" count="9" type="stmt"/>
       </file>
       <file name="BoardModel.ts" path="A:\WebProjects\task-manager\src\model\BoardModel.ts">
         <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
@@ -223,7 +223,7 @@
         <line num="25" count="3" type="stmt"/>
         <line num="27" count="3" type="stmt"/>
         <line num="30" count="3" type="stmt"/>
-        <line num="31" count="1" type="stmt"/>
+        <line num="31" count="2" type="stmt"/>
       </file>
       <file name="CardModel.ts" path="A:\WebProjects\task-manager\src\model\CardModel.ts">
         <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
@@ -269,9 +269,9 @@
       <file name="createClass.ts" path="A:\WebProjects\task-manager\src\utils\createClass.ts">
         <metrics statements="4" coveredstatements="4" conditionals="3" coveredconditionals="3" methods="2" coveredmethods="2"/>
         <line num="1" count="3" type="cond" truecount="1" falsecount="0"/>
-        <line num="2" count="44" type="stmt"/>
-        <line num="3" count="80" type="cond" truecount="2" falsecount="0"/>
-        <line num="4" count="44" type="stmt"/>
+        <line num="2" count="62" type="stmt"/>
+        <line num="3" count="115" type="cond" truecount="2" falsecount="0"/>
+        <line num="4" count="62" type="stmt"/>
       </file>
       <file name="uuid.ts" path="A:\WebProjects\task-manager\src\utils\uuid.ts">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
