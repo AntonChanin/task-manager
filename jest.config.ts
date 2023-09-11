@@ -194,6 +194,8 @@ const config: Config = {
 
   // Whether to use watchman for file crawling
   // watchman: true,
+
+  testEnvironment: 'jsdom',
 };
 
 export default config;

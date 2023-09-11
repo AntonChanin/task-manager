@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import Adapter from 'enzyme-adapter-react-16';
-import {describe, expect, it } from '@jest/globals';
+import { render, fireEvent } from '@testing-library/react';
+import {describe, expect, it, jest } from '@jest/globals';
 
 
 import Article from '../components/ui/Article';
@@ -11,6 +11,7 @@ import Paper from '../components/ui/Paper';
 import Row from '../components/ui/Row';
 import Textarea from '../components/ui/Textarea';
 import Title from '../components/ui/Title';
+
 
 const handleClick = jest.fn();
 
@@ -38,7 +39,7 @@ describe('UI snapshots:', () => {
     it('Button renders correctly secondary', () => {
         const tree = renderer
             .create(
-                <Button variant="secondary" className="button" value="description" onClick={handleClick} />
+                <Button variant="secondary" className="button" value="description" />
             )
             .toJSON();
         expect(tree).toMatchSnapshot();
@@ -134,17 +135,54 @@ describe('UI snapshots:', () => {
     it('Title renders correctly with props', () => {
         const tree = renderer
             .create(
-                <Title value="title" className="title" />
+                <Title
+                    value="title"
+                    className="title"
+                />
             )
             .toJSON();
         expect(tree).toMatchSnapshot();
     });
     it('Title renders correctly no props', () => {
         const tree = renderer
-            .create(
-                <Title />
-            )
+            .create(<Title />)
             .toJSON();
         expect(tree).toMatchSnapshot();
     });
+});
+
+describe('Button "onClick" correctly', () => {
+    const { queryByText } = render(
+        <Button
+            variant="secondary"
+            className="button"
+            value="description"
+        />
+    );
+    const button = queryByText('description');
+    expect(fireEvent.click(button));
+});
+describe('Input "onChange" correctly', () => {
+    const { queryByPlaceholderText } = render(
+        <Input
+            value="name"
+            className="input"
+            placeholder="name input"
+            callback={handleClick}
+        />
+    );
+    const input = queryByPlaceholderText('name input');
+    expect(fireEvent.change(input, { target: { value: 'Nice work!' } }));
+});
+describe('Textarea "onChange" correctly', () => {
+    const { queryByPlaceholderText } = render(
+        <Textarea
+            value="description"
+            className="textarea"
+            placeholder="name textarea"
+            callback={handleClick}
+        />
+    );
+    const textarea = queryByPlaceholderText('name textarea');
+    expect(fireEvent.change(textarea, { target: { value: 'Nice work!' } }));
 });

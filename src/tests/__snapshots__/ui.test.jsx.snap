@@ -26,7 +26,7 @@ exports[`UI snapshots: Button renders correctly 1`] = `
 exports[`UI snapshots: Button renders correctly secondary 1`] = `
 <button
   className="text-gray-400 border-gray-400 border outline-none m-2 hover:text-gray-600 border-gray-600 button"
-  onClick={[MockFunction]}
+  onClick={[Function]}
 >
   description
 </button>

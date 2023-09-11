@@ -18,6 +18,7 @@ const Button: FC<PropsWithChildren<Partial<ButtonProps>>> = (props) => {
         event?.preventDefault();
         callback?.();
     };
+    
     return (
         <button
             onClick={handleClick ?? defaultHandleClick}
