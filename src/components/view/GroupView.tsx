@@ -67,6 +67,8 @@ const GroupView: FC<ViewWithModel<GroupModel>> = (props) => {
             <Button
                 variant="thirdy"
                 callback={cardEdit}
+                name="edit-card-button"
+                role="button"
             >
                 <img
                     width={24}
@@ -78,23 +80,25 @@ const GroupView: FC<ViewWithModel<GroupModel>> = (props) => {
             </Row>
         ) : (
             <Row>
-            <Input
-                value={name}
-                variant="thirdy"
-                placeholder={localization[lang].editGroupTitlePlaceholder}
-                callback={updateNameCallback}
-            />
-            <Button
-                variant="thirdy"
-                callback={cardEdit}
-            >
-                <img
-                    width={24}
-                    height={24}
-                    src={tailwindcssStyles['icons']['more']['src']}
-                    alt={tailwindcssStyles['icons']['more']['author']}
+                <Input
+                    value={name}
+                    variant="thirdy"
+                    placeholder={localization[lang].editGroupTitlePlaceholder}
+                    callback={updateNameCallback}
                 />
-            </Button> 
+                <Button
+                    variant="thirdy"
+                    callback={cardEdit}
+                    name="edit-card-button"
+                    role="button"
+                >
+                    <img
+                        width={24}
+                        height={24}
+                        src={tailwindcssStyles['icons']['more']['src']}
+                        alt={tailwindcssStyles['icons']['more']['author']}
+                    />
+                </Button> 
             </Row>
         )}
         <div className={makeClass(['cards'])}>
@@ -106,6 +110,8 @@ const GroupView: FC<ViewWithModel<GroupModel>> = (props) => {
             value={`+ ${localization[lang].addCard}`}
             variant="thirdy"
             callback={addNewCard}
+            name="edit-card-button"
+            role="button"
         />
         </Paper>
     );

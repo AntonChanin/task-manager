@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">53.33% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>8/15</span>
+                <span class='fraction'>15/15</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">25% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>1/4</span>
+                <span class='fraction'>4/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">33.33% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>1/3</span>
+                <span class='fraction'>3/3</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">53.33% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>8/15</span>
+                <span class='fraction'>15/15</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line medium'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -129,7 +129,8 @@
 <a name='L64'></a><a href='#L64'>64</a>
 <a name='L65'></a><a href='#L65'>65</a>
 <a name='L66'></a><a href='#L66'>66</a>
-<a name='L67'></a><a href='#L67'>67</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L67'></a><a href='#L67'>67</a>
+<a name='L68'></a><a href='#L68'>68</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -143,28 +144,29 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">84x</span>
+<span class="cline-any cline-yes">84x</span>
+<span class="cline-any cline-yes">84x</span>
+<span class="cline-any cline-yes">84x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">84x</span>
+<span class="cline-any cline-yes">19x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">17x</span>
+<span class="cline-any cline-yes">17x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">84x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">84x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -214,20 +216,20 @@ const CardView: FC&lt;ViewWithModel&lt;CardModel&gt;&gt; = (props) =&gt; {
     const { removeCardId } = InstanceTaskManagerStore;
     const [isEdit, setIsEdit] = useState(model.isEdit);
 &nbsp;
-    const cardEdit = <span class="fstat-no" title="function not covered" >()</span> =&gt;  {
-<span class="cstat-no" title="statement not covered" >        if (model.description.trimEnd()) {</span>
-<span class="cstat-no" title="statement not covered" >            setIsEdit(!isEdit);</span>
-<span class="cstat-no" title="statement not covered" >            setEdit(isEdit);</span>
+    const cardEdit = () =&gt;  {
+        if (model.description.trimEnd()) {
+            setIsEdit(!isEdit);
+            setEdit(isEdit);
         } else {
-<span class="cstat-no" title="statement not covered" >            removeFromParent();</span>
-<span class="cstat-no" title="statement not covered" >            removeCardId(id)</span>
+            removeFromParent();
+            removeCardId(id)
         };
     };
 &nbsp;
     const updateDescriptionCallback: &lt;T&gt;(props: Record&lt;string, T&gt;) =&gt; void =
-<span class="fstat-no" title="function not covered" >        (p</span>rops) =&gt; {
-            const { value } = <span class="cstat-no" title="statement not covered" >props;</span>
-<span class="cstat-no" title="statement not covered" >            model.description = `${value}`.trim();</span>
+        (props) =&gt; {
+            const { value } = props;
+            model.description = `${value}`.trim();
         };        
 &nbsp;
     return (
@@ -236,6 +238,7 @@ const CardView: FC&lt;ViewWithModel&lt;CardModel&gt;&gt; = (props) =&gt; {
                 className={makeClass(['editButton'])}
                 variant={variant}
                 callback={cardEdit}
+                role="button"
             &gt;
                 &lt;img
                     width={24}
@@ -246,14 +249,14 @@ const CardView: FC&lt;ViewWithModel&lt;CardModel&gt;&gt; = (props) =&gt; {
             &lt;/Button&gt;
             {!isEdit
                 ? (
-<span class="branch-0 cbranch-no" title="branch not covered" >                &lt;Article value={description} /&gt;</span>
+                    &lt;Article value={description} /&gt;
                 ) : (
-                &lt;Textarea
-                    value={description}
-                    variant="thirdy"
-                    placeholder={localization[lang].editCardPlaceholder}
-                    callback={updateDescriptionCallback}
-                /&gt;
+                    &lt;Textarea
+                        value={description}
+                        variant="thirdy"
+                        placeholder={localization[lang].editCardPlaceholder}
+                        callback={updateDescriptionCallback}
+                    /&gt;
                 )
             }
         &lt;/Paper&gt;
@@ -268,7 +271,7 @@ export default observer(CardView);
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-09-11T09:51:07.149Z
+                at 2023-09-12T07:49:01.761Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

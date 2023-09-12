@@ -39,6 +39,7 @@ const CardView: FC<ViewWithModel<CardModel>> = (props) => {
                 className={makeClass(['editButton'])}
                 variant={variant}
                 callback={cardEdit}
+                role="button"
             >
                 <img
                     width={24}
@@ -49,14 +50,14 @@ const CardView: FC<ViewWithModel<CardModel>> = (props) => {
             </Button>
             {!isEdit
                 ? (
-                <Article value={description} />
+                    <Article value={description} />
                 ) : (
-                <Textarea
-                    value={description}
-                    variant="thirdy"
-                    placeholder={localization[lang].editCardPlaceholder}
-                    callback={updateDescriptionCallback}
-                />
+                    <Textarea
+                        value={description}
+                        variant="thirdy"
+                        placeholder={localization[lang].editCardPlaceholder}
+                        callback={updateDescriptionCallback}
+                    />
                 )
             }
         </Paper>

@@ -13,6 +13,7 @@ const Button: FC<PropsWithChildren<Partial<ButtonProps>>> = (props) => {
         callback,
         onClick: handleClick,
         children,
+        ...other
     } = props;
     const defaultHandleClick: MouseEventHandler<HTMLButtonElement> = (event) => {
         event?.preventDefault();
@@ -21,6 +22,7 @@ const Button: FC<PropsWithChildren<Partial<ButtonProps>>> = (props) => {
     
     return (
         <button
+            {...other}
             onClick={handleClick ?? defaultHandleClick}
             className={createClass([tailwindcssStyles['ui']['button'][variant](theme), `${className}`])}
         >
