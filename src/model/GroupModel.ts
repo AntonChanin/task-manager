@@ -14,22 +14,29 @@ class GroupModel extends BaseModel {
     };
 
     override items: CardModel[] = [];
+    
+    private __order = 0;
 
     constructor(options: Record<string, any>) {
         const { name, description, parent } = options;
         super({ name, description, parent });
 
-        this.classList = this.__default.classList;  
+        this.classList = this.__default.classList;
+        this.__order = parent?.items?.length;
     };
 
     addCard = (newCard: CardModel) => {
         this.addItem(newCard);
+        return this;
     };
 
     removeCard = (removedCard: CardModel) => {
         this.removeItem(removedCard);
     }
- 
+    
+    get order() {
+        return this.__order;
+    }
 };
 
 export default GroupModel;

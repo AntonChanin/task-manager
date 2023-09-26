@@ -1,5 +1,8 @@
+import { TemplateConfig, templates } from '../configs/template.config';
+import InstanceTaskManagerStore from '../store';
 import BaseModel from './BaseModel';
 import GroupModel from './GroupModel';
+import PageModel from './PageModel';
 
 class BoardModel extends BaseModel {
     override __default = {
@@ -20,15 +23,33 @@ class BoardModel extends BaseModel {
 
     override items: GroupModel[] = [];
 
+    template = 'default'
+
     constructor(options: Record<string, any>) {
-        const { name, description, parent } = options;
+        const { name, description, parent, template = 'default' } = options;
         super({ name, description, parent });
 
-        this.classList = this.__default.classList;  
+        this.classList = this.__default.classList; 
+        this.template = template;
     };
 
     addGroup = (newGroup: GroupModel) => {
         this.addItem(newGroup);
+        return this;
+    }
+
+    addGroups = (newGroups: GroupModel[]) => {
+        this.items = [...this.items, ...newGroups];
+        return this;
+    }
+
+    
+    makeTemplate = (props: { template?: string, page: PageModel, ctx: TemplateConfig }) => {
+        const { template = this.template, page, ctx } = props;
+        ctx.createTemplate([{
+            [template]: templates[template][0]
+        }, { [template]: templates[template][1] }], page);
+        return this;
     }
 };
 

@@ -1,14 +1,20 @@
+import { useState } from 'react';
 import { observer } from 'mobx-react-lite';
 
+import BoardModel from './model/BoardModel';
 import GroupModel from './model/GroupModel';
 import CardModel from './model/CardModel';
-import BoardView from './components/view/BoardView';
+import BoardPage from './pages/BoardPage';
+import MainPage from './pages/MainPage';
 import InstanceTaskManagerStore from './store';
 import './App.css';
 
+
 function App() {
-    const { boards } = InstanceTaskManagerStore;
-    const groupModel = new GroupModel({ name: 'Basics', parent: boards });
+    const [currentBoard, setCurrentBoard] = useState<BoardModel | null>(null);
+
+    const { pages } = InstanceTaskManagerStore;
+    const groupModel = new GroupModel({ name: 'Basics', parent: pages[0].items[0] });
     groupModel.addCard(
         new CardModel({
         name: '', 
@@ -22,7 +28,11 @@ function App() {
 
     return (
         <div className="App">
-            <BoardView model={boards[0]} />   
+            {
+                !currentBoard ? (
+                    <MainPage callback={({ board }) => setCurrentBoard(board as BoardModel)} model={pages[1]} />
+                ) : <BoardPage model={currentBoard} />
+            }
         </div>
     );
 };

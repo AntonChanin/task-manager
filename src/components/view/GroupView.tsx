@@ -22,13 +22,14 @@ const GroupView: FC<ViewWithModel<GroupModel>> = (props) => {
         name,
         items: cards,
         lang,
+        order,
         setEdit,
         addCard,
         didUpdate,
         makeClass,
         removeFromParent,
     } = model;
-    const { cardIds, addCardId, removeGroupId } = InstanceTaskManagerStore;
+    const { cardIds, addCardId, removeGroupId, updateTaskCounter, taskCounter } = InstanceTaskManagerStore;
     const [isEdit, setIsEdit] = useState(model.isEdit);
 
     const cardEdit = () =>  {
@@ -49,6 +50,13 @@ const GroupView: FC<ViewWithModel<GroupModel>> = (props) => {
             description: '',
             variant: 'thirdy',
             parent: model,
+            status: name ?? order,
+            priority: 2,
+            order: (() => {
+                updateTaskCounter();
+                console.log(taskCounter);
+                return taskCounter;
+            })()
         });
         addCard(card);
         addCardId(card.id);

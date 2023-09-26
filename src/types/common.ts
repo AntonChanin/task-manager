@@ -52,6 +52,10 @@ type VoidCallbackWithWrapProps = {
 
 type Variant = 'primary' | 'secondary' | 'thirdy';
 
+type Priority = 'very low' | 'low' | 'medium' | 'high' | 'hot';
+
+type Status = 'Queue' | 'Development' | 'Done';
+
 type Theme = 'dark' | 'light';
 
 export type {
@@ -62,5 +66,7 @@ export type {
   VoidCallbackWithProps,
   VoidCallbackWithWrapProps,
   Variant,
+  Priority,
+  Status,
   Theme,
 };

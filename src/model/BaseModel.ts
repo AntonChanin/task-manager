@@ -3,7 +3,6 @@ import uuid from '../utils/uuid';
 import { BaseProps } from '../types/model';
 
 class BaseModel {
-
     readonly __default: BaseProps = {
         classList: { },
         name: 'BaseModel',
@@ -17,11 +16,13 @@ class BaseModel {
     private __name = this.__default.name;
     private __parent?: BaseModel;
     private __localization = this.__default.localization;
+    private __date: Date[] = [];
 
     classList = this.__default.classList;
     description = this.__default.description;
     isEdit = this.__default.isEdit;
     items: BaseModel[] = [];
+    
 
     constructor(options: Record<string, any>) {
         const { name, description, localization = 'ENG', parent } = options;
@@ -33,6 +34,7 @@ class BaseModel {
 
         this.description = description;
         this.classList = this.__default.classList;
+        this.__date.push(new Date());
     };
 
     protected addItem = (newItem: BaseModel) => {
@@ -45,6 +47,17 @@ class BaseModel {
     protected removeItem = (removedItem: BaseModel) => {
         this.items = this.items.filter((model) => model.id !== removedItem.id);
     };
+
+    get date() {
+        return {
+            create: this.__date[0],
+            exicute: this.__date[1],
+        };
+    }
+
+    setExicuteDate(newDate: Date) {
+        this.__date[1] = newDate;
+    }
 
     removeItemById = (id: string) => {
         this.items = this.items.filter((model) => model.id !== id);

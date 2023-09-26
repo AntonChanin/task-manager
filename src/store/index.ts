@@ -1,14 +1,26 @@
-import { action, makeObservable, observable } from 'mobx';
+import { action, computed, makeObservable, observable } from 'mobx';
 
 import BoardModel from '../model/BoardModel';
+import PageModel from '../model/PageModel';
+import { TemplateConfig, templates } from '../configs/template.config';
+
+const { default: def, next } = templates;
+const [ board_def, group_def ] = def;
+const template = new TemplateConfig('RU');
 
 class TaskManagerStore {
+    pages: PageModel[] = [
+        template.default,
+        template.customTemplate('Boards', { default: board_def }, { default: group_def }),
+    ];
     boards: BoardModel[] = [];
     groupIds: string[] = [];
     cardIds: string[] = [];
+    private __taskCounter = 0;
 
     constructor() {
         makeObservable(this, {
+            pages: observable,
             boards: observable,
             groupIds: observable,
             cardIds: observable,
@@ -17,7 +29,10 @@ class TaskManagerStore {
             addGroupId: action.bound,
             removeCardId: action.bound,
             removeGroupId: action.bound,
+            updateTaskCounter: action.bound,
+            taskCounter: computed,
         });
+        template.namedTemplate(this.pages[1], 'next', 'next');
     };
 
     addBoard(newBoard: BoardModel) {
@@ -49,6 +64,14 @@ class TaskManagerStore {
         this.groupIds = this.groupIds.filter((groupId) => groupId !== removeGroupId);
     };
   
+
+    updateTaskCounter() {
+        this.__taskCounter += 1;
+    }
+
+    get taskCounter() {
+        return this.__taskCounter;
+    }
 };
 
 const InstanceTaskManagerStore =  new TaskManagerStore();
@@ -56,3 +79,5 @@ const InstanceTaskManagerStore =  new TaskManagerStore();
 InstanceTaskManagerStore.addBoard(new BoardModel({ name: 'test' }))
 
 export default InstanceTaskManagerStore;
+
+export type { TaskManagerStore };
