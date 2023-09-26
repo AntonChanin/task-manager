@@ -1,0 +1,101 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UI snapshots: Article renders correctly no props 1`] = `
+<article
+  className="font-sans"
+/>
+`;
+
+exports[`UI snapshots: Article renders correctly with props 1`] = `
+<article
+  className="font-sans article"
+>
+  description
+</article>
+`;
+
+exports[`UI snapshots: Button renders correctly 1`] = `
+<button
+  className="bg-gray-400 text-white border-none outline-none m-2 hover:bg-gray-600 button"
+  onClick={[MockFunction]}
+>
+  description
+</button>
+`;
+
+exports[`UI snapshots: Button renders correctly secondary 1`] = `
+<button
+  className="text-gray-400 border-gray-400 border outline-none m-2 hover:text-gray-600 border-gray-600 button"
+  onClick={[Function]}
+>
+  description
+</button>
+`;
+
+exports[`UI snapshots: Input renders correctly 1`] = `
+<input
+  className="w-11/12 w-full outline-none border-none m-auto input"
+  onChange={[Function]}
+  placeholder="name input"
+  value="name"
+/>
+`;
+
+exports[`UI snapshots: Paper renders correctly secondary 1`] = `
+<div
+  className="paper border-none p-2 mb-4 text-start"
+/>
+`;
+
+exports[`UI snapshots: Paper renders correctly thirdy 1`] = `
+<div
+  className="paper border border-black p-2 mb-4 text-start"
+/>
+`;
+
+exports[`UI snapshots: Row renders correctly 1`] = `
+<div
+  className="flex justify-between"
+/>
+`;
+
+exports[`UI snapshots: Textarea renders correctly primary 1`] = `
+<textarea
+  className="w-full outline-none border m-auto textarea"
+  onChange={[Function]}
+  placeholder=""
+  value="description"
+/>
+`;
+
+exports[`UI snapshots: Textarea renders correctly secondary 1`] = `
+<textarea
+  className="w-full outline-none border-none border-b m-auto textarea"
+  onChange={[Function]}
+  placeholder=""
+  value="description"
+/>
+`;
+
+exports[`UI snapshots: Textarea renders correctly thirdy 1`] = `
+<textarea
+  className="w-full outline-none border-none m-auto textarea"
+  onChange={[Function]}
+  placeholder=""
+  value="description"
+/>
+`;
+
+exports[`UI snapshots: Title renders correctly no props 1`] = `
+<div
+  className="font-sans font-bold"
+/>
+`;
+
+exports[`UI snapshots: Title renders correctly with props 1`] = `
+<div
+  className="font-sans font-bold title"
+>
+  title
+</div>
+`;

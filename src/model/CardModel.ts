@@ -3,23 +3,23 @@ import { Variant } from '../types/common';
 import { BaseProps } from '../types/model';
 
 class CardModel extends BaseModel {
-  override  __default: BaseProps =  {
-    ...super.__default,
-    name: 'CardModel',
-    classList: {
-      editButton: 'opacity-0 flex ml-auto hover:opacity-100 absolute top-0 right-0',
-    },
-  };
+    override  __default: BaseProps =  {
+        ...super.__default,
+        name: 'CardModel',
+        classList: {
+            editButton: 'opacity-0 flex ml-auto hover:opacity-100 absolute top-0 right-0',
+        },
+    };
 
-  variant: Variant = 'secondary';
+    variant: Variant = 'secondary';
 
-  constructor(options: Record<string, any>) {
-    const { name, description, parent, variant } = options;
-    super({ name, description, parent });
+    constructor(options: Record<string, any>) {
+        const { name, description, parent, variant } = options;
+        super({ name, description, parent });
 
-    this.variant = variant;
-    this.classList = this.__default.classList;
-  };
+        this.variant = variant;
+        this.classList = this.__default.classList;
+    };
 };
 
 export default CardModel;

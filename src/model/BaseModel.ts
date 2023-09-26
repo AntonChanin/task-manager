@@ -4,90 +4,90 @@ import { BaseProps } from '../types/model';
 
 class BaseModel {
 
-  readonly __default: BaseProps = {
-    classList: { },
-    name: 'BaseModel',
-    description: 'lorem ipsum',
-    localization: 'ENG',
-    items: [],
-    isEdit: true,
-  };
-
-  private __id = '';
-  private __name = this.__default.name;
-  private __parent?: BaseModel;
-  private __localization = this.__default.localization;
-
-  classList = this.__default.classList;
-  description = this.__default.description;
-  isEdit = this.__default.isEdit;
-  items: BaseModel[] = [];
-
-  constructor(options: Record<string, any>) {
-    const { name, description, localization = 'ENG', parent } = options;
-
-    this.__id = uuid();
-    this.__name = name;
-    this.__localization = localization;
-    this.__parent = parent;
-
-    this.description = description;
-    this.classList = this.__default.classList;
-  };
-
-  protected addItem = (newItem: BaseModel) => {
-    this.items = [
-      ...this.items,
-      newItem,
-    ];
-  };
-
-  protected removeItem = (removedItem: BaseModel) => {
-    this.items = this.items.filter((model) => model.id !== removedItem.id);
-  };
-
-  removeItemById = (id: string) => {
-    this.items = this.items.filter((model) => model.id !== id);
-  }
-
-  removeFromParent = () => {
-    this.parent?.removeItemById(this.id);
-  }
-
-  addClass = (newClasses: Record<string, string>) => {
-    this.classList = {
-      ...this.classList,
-      ...newClasses,
+    readonly __default: BaseProps = {
+        classList: { },
+        name: 'BaseModel',
+        description: 'lorem ipsum',
+        localization: 'ENG',
+        items: [],
+        isEdit: true,
     };
-  };
 
-  makeClass = (classes: string[]) => createClass(classes, this.classList);
+    private __id = '';
+    private __name = this.__default.name;
+    private __parent?: BaseModel;
+    private __localization = this.__default.localization;
 
-  didUpdate = () => {};
+    classList = this.__default.classList;
+    description = this.__default.description;
+    isEdit = this.__default.isEdit;
+    items: BaseModel[] = [];
 
-  setEdit = (newEdit: boolean) => {
-    this.isEdit = newEdit;
-  };
+    constructor(options: Record<string, any>) {
+        const { name, description, localization = 'ENG', parent } = options;
 
-  get id() {
-    return this.__id;
-  };
+        this.__id = uuid();
+        this.__name = name;
+        this.__localization = localization;
+        this.__parent = parent;
 
-  get parent() {
-    return this.__parent;
-  };
+        this.description = description;
+        this.classList = this.__default.classList;
+    };
 
-  get name() {
-    return this.__name;
-  };
+    protected addItem = (newItem: BaseModel) => {
+        this.items = [
+        ...this.items,
+        newItem,
+        ];
+    };
 
-  set name(newVName: string) {
-    this.__name = newVName;
-  }
+    protected removeItem = (removedItem: BaseModel) => {
+        this.items = this.items.filter((model) => model.id !== removedItem.id);
+    };
 
-  get lang() {
-    return this.__localization;
-  };
+    removeItemById = (id: string) => {
+        this.items = this.items.filter((model) => model.id !== id);
+    }
+
+    removeFromParent = () => {
+        this.parent?.removeItemById(this.id);
+    }
+
+    addClass = (newClasses: Record<string, string>) => {
+        this.classList = {
+            ...this.classList,
+            ...newClasses,
+        };
+    };
+
+    makeClass = (classes: string[]) => createClass(classes, this.classList);
+
+    didUpdate = () => {};
+
+    setEdit = (newEdit: boolean) => {
+        this.isEdit = newEdit;
+    };
+
+    get id() {
+        return this.__id;
+    };
+
+    get parent() {
+        return this.__parent;
+    };
+
+    get name() {
+        return this.__name;
+    };
+
+    set name(newVName: string) {
+        this.__name = newVName;
+    }
+
+    get lang() {
+        return this.__localization;
+    };
 
 };
 

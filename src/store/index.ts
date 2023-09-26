@@ -3,51 +3,51 @@ import { action, makeObservable, observable } from 'mobx';
 import BoardModel from '../model/BoardModel';
 
 class TaskManagerStore {
-  boards: BoardModel[] = [];
-  groupIds: string[] = [];
-  cardIds: string[] = [];
+    boards: BoardModel[] = [];
+    groupIds: string[] = [];
+    cardIds: string[] = [];
 
-  constructor() {
-    makeObservable(this, {
-      boards: observable,
-      groupIds: observable,
-      cardIds: observable,
-      addBoard: action.bound,
-      addCardId: action.bound,
-      addGroupId: action.bound,
-      removeCardId: action.bound,
-      removeGroupId: action.bound,
-    });
-  };
+    constructor() {
+        makeObservable(this, {
+            boards: observable,
+            groupIds: observable,
+            cardIds: observable,
+            addBoard: action.bound,
+            addCardId: action.bound,
+            addGroupId: action.bound,
+            removeCardId: action.bound,
+            removeGroupId: action.bound,
+        });
+    };
 
-  addBoard(newBoard: BoardModel) {
-    this.boards = [
-      ...this.boards,
-      newBoard,
-    ];
-  };
+    addBoard(newBoard: BoardModel) {
+        this.boards = [
+            ...this.boards,
+            newBoard,
+        ];
+    };
   
-  addCardId(newCardId: string) {
-    this.cardIds = [
-      ...this.cardIds,
-      newCardId,
-    ];
-  }; 
+    addCardId(newCardId: string) {
+        this.cardIds = [
+            ...this.cardIds,
+            newCardId,
+        ];
+    }; 
 
-  addGroupId(newGroupId: string) {
-    this.groupIds = [
-      ...this.groupIds,
-      newGroupId,
-    ];
-  };
+    addGroupId(newGroupId: string) {
+        this.groupIds = [
+            ...this.groupIds,
+            newGroupId,
+        ];
+    };
 
-  removeCardId(removeCardId: string) {
-    this.cardIds = this.cardIds.filter((cardId) => cardId !== removeCardId);
-  };
+    removeCardId(removeCardId: string) {
+        this.cardIds = this.cardIds.filter((cardId) => cardId !== removeCardId);
+    };
 
-  removeGroupId(removeGroupId: string) {
-    this.groupIds = this.groupIds.filter((groupId) => groupId !== removeGroupId);
-  };
+    removeGroupId(removeGroupId: string) {
+        this.groupIds = this.groupIds.filter((groupId) => groupId !== removeGroupId);
+    };
   
 };
 

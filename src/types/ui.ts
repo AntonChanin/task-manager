@@ -2,7 +2,7 @@ import { BaseComponentProps, ClickButton, StylesProps, VoidCallback, VoidCallbac
 
 type ArticleProps = BaseComponentProps & StylesProps;
 
-type ButtonProps = BaseComponentProps & StylesProps & ClickButton & VoidCallback;
+type ButtonProps = BaseComponentProps & StylesProps & ClickButton & VoidCallback & React.ButtonHTMLAttributes<HTMLButtonElement>;
 
 type PaperProps = StylesProps;
 
